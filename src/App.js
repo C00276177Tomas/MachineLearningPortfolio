@@ -8,64 +8,122 @@ import level2Assembly from './images/level2AssemblyProject.png';
 import codeAssembly from './images/codeAssemblyProject.png';
 
 function App() {
-  const [showMenu, setShowMenu] = useState(true);
-  const [lastScrollY, setLastScrollY] = useState(0);
 
-  const controlMenu = () => {
-    if (window.scrollY < 50) {
-      setShowMenu(true); // Always show the menu when near the top
-    } else if (window.scrollY > lastScrollY) {
-      setShowMenu(false); // Hide menu on scroll down
+	const [activeSection, setActiveSection] = useState('top'); // Initialize with 'top' for the Home link
+
+  // Function to scroll to the top of the page or a specific section
+	const scrollToSection = (event, sectionId) => {
+    event.preventDefault();
+
+    if (sectionId === 'top') {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth',
+      });
     } else {
-      setShowMenu(true); // Show menu on scroll up
+      const section = document.getElementById(sectionId);
+      if (section) {
+        section.scrollIntoView({
+          behavior: 'smooth',
+          block: 'start',
+        });
+      }
     }
-    setLastScrollY(window.scrollY);
   };
 
-  useEffect(() => {
-    window.addEventListener('scroll', controlMenu);
+	useEffect(() => {
+    const handleScroll = () => {
+      const sections = document.querySelectorAll('section'); // Get all section elements
+      const scrollPos = window.scrollY; // Current scroll position
+      const windowHeight = window.innerHeight; // Height of the viewport
+      const documentHeight = document.body.offsetHeight; // Total height of the document
+      const offset = 50; // Offset to check above the section
+
+      // Check if scrolled to the top
+      if (scrollPos < 500) {
+        setActiveSection('top'); // Set active section to 'top' (Home)
+        return;
+      }
+			
+      // Check if scrolled to the bottom
+      if (scrollPos + windowHeight >= documentHeight -20) {
+        setActiveSection('contact'); // Set active section to 'contact'
+        return;
+      }
+
+			else {
+				// Check which section is currently in view
+				sections.forEach((section) => {
+					const sectionTop = section.offsetTop; // Section top position
+					const sectionHeight = section.offsetHeight; // Section height
+	
+					// Check if the current scroll position is within the section with offset
+					if (scrollPos + offset >= sectionTop && scrollPos < sectionTop + sectionHeight) {
+						setActiveSection(section.id); // Update active section
+					}
+				});
+			}
+
+
+    };
+
+    window.addEventListener('scroll', handleScroll); // Add scroll event listener
 
     return () => {
-      window.removeEventListener('scroll', controlMenu);
+      window.removeEventListener('scroll', handleScroll); // Clean up on unmount
     };
-  }, [lastScrollY]);
+  }, []);
 
   return (
     <div className="App">
-      <header>
+       <header>
         <nav className="navbar">
-          <div className="logo-container">
-            <img src={faceshot} alt="Logo" className="logo-image" />
-            <div className="logo">
-              Tomas Smitas <br />
-              <span className="subtitle">(Full Stack Developer)</span>
-            </div>
-          </div>
-          <div className="welcome">
-            Welcome
-          </div>
-          <div className="social-media">
-            <a href="https://github.com/C00276177Tomas" target="_blank" rel="noopener noreferrer">
-              <img src={githubLogo} alt="GitHub" className="social-logo" />
-            </a>
-            <a href="https://www.linkedin.com/in/tomas-smitas-a43aa2104/" target="_blank" rel="noopener noreferrer">
-              <img src={linkedInLogo} alt="GitHub" className="social-logo" />
-            </a>
-          </div>
-          <div className={`menu ${showMenu ? 'show' : 'hide'}`}>
-            <ul className="nav-links">
-              <li><a href="#intro">Introduction</a></li>
-              <li><a href="#experience">Experience</a></li>
-              <li><a href="#projects">Projects</a></li>
-              <li><a href="#contact">Contact</a></li>
-            </ul>
-          </div>
+          <ul className="nav-links centered">
+					<li>
+							<a href="#" onClick={(e) => scrollToSection(e, 'top')} className={activeSection === 'top' ? 'active' : ''}>Home</a>
+					</li>
+					<li>
+							<a href="#intro" onClick={(e) => scrollToSection(e, 'intro')} className={activeSection === 'intro' ? 'active' : ''}>Introduction</a>
+					</li>
+					<li>
+							<a href="#experience" onClick={(e) => scrollToSection(e, 'experience')} className={activeSection === 'experience' ? 'active' : ''}>Experience</a>
+					</li>
+					<li>
+							<a href="#machineLearning" onClick={(e) => scrollToSection(e, 'machineLearning')} className={activeSection === 'machineLearning' ? 'active' : ''}>Machine Learning</a>
+					</li>
+					<li>
+							<a href="#projects" onClick={(e) => scrollToSection(e, 'projects')} className={activeSection === 'projects' ? 'active' : ''}>Projects</a>
+					</li>
+					<li>
+							<a href="#contact" onClick={(e) => scrollToSection(e, 'contact')} className={activeSection === 'contact' ? 'active' : ''}>Contact</a>
+					</li>
+          </ul>
         </nav>
       </header>
 
       <main>
+			<section className="main-section">
+				<section id="profile" className="profile-section">
+					{/* <img src={faceshot} alt="Profile" className="profile-image" /> */}
+					<div className="profile-content">
+						<h1 className="welcome-message">Welcome</h1>
+						<p className="job-description">
+							Hi, my name is Tomas Smitas. I am a Full Stack Software Developer & Data Scientist.
+						</p>
+						<p className="job-description">
+								<a 
+										href="#intro" 
+										className="scroll-link" 
+										id="scroll-link" 
+										onClick={(e) => scrollToSection(e, 'intro')} // Call the scroll function with 'intro'
+								>
+										Scroll down for more
+								</a>
+						</p>
+					</div>
+				</section>
         <section id="intro">
-          <h1>My Vision and Passion</h1>
+					<h2>About Me</h2>
           <p>
             For me, the core of software development is functionality. I value simplicity and clarity, focusing on creating both 
             intuitive frontends and efficient backends. My goal is to develop solutions that effectively address real-world problems 
@@ -107,6 +165,26 @@ function App() {
                   <li>Conducted quality inspections and tests, ensuring products met regulatory compliance and specifications.</li>
                   <li>Worked with a kanban system that ensured efficiency.</li>
               </ul>
+          </div>
+        </section>
+				<section id="machineLearning">
+          <h2>Machine Learning</h2>
+          <div class="job">
+              <h3>Predicting Student Final Grade &#40;Multi dimentional Linear regression&#41;</h3>
+              <p><strong>Introduction</strong></p>
+							<p>In this prject I will use a dataset from dataworld of setudents behaviours and previous marks to predict their final grade</p>
+							<p><strong>Business Objectives</strong></p>
+							<p>In this prject I will use a dataset from dataworld of setudents behaviours and previous marks to predict their final grade</p>
+							<p><strong>Situation Assesment</strong></p>
+							<p>In this prject I will use a dataset from dataworld of setudents behaviours and previous marks to predict their final grade</p>
+							<p><strong>Data Collection</strong></p>
+							<p>In this prject I will use a dataset from dataworld of setudents behaviours and previous marks to predict their final grade</p>
+          </div>
+
+          <div class="job">
+              <h3>Integer – Medical Manufacturing (General Operative)</h3>
+              <p><strong>Introduction</strong></p>
+							<p>This i</p>
           </div>
         </section>
         <section id="projects">
@@ -175,6 +253,7 @@ function App() {
               <p>In this analysis, I created sequence diagrams, class diagrams, use case diagrams, and test cases for the self-checkout system.</p>
           </div>
         </section>
+			</section>
       </main>
       <footer>
         <section id="contact">
