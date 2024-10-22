@@ -6,66 +6,129 @@ import linkedInLogo from './images/linkedIn.png';
 import level1Assembly from './images/level1AssemblyProject.png';
 import level2Assembly from './images/level2AssemblyProject.png';
 import codeAssembly from './images/codeAssemblyProject.png';
+import rootMeanSquareError from './images/RootMeanSquareError.png';
+import splitingModel from './images/SplitingModel802020.png';
+import validationRMSE from './images/ValidationRMSE.png';
+import dataCleaning from './images/filterDataset.png';
+import mergeDatasets from './images/mergeDatasets.png';
 
 function App() {
-  const [showMenu, setShowMenu] = useState(true);
-  const [lastScrollY, setLastScrollY] = useState(0);
 
-  const controlMenu = () => {
-    if (window.scrollY < 50) {
-      setShowMenu(true); // Always show the menu when near the top
-    } else if (window.scrollY > lastScrollY) {
-      setShowMenu(false); // Hide menu on scroll down
+	const [activeSection, setActiveSection] = useState('top'); // Initialize with 'top' for the Home link
+
+  // Function to scroll to the top of the page or a specific section
+	const scrollToSection = (event, sectionId) => {
+    event.preventDefault();
+
+    if (sectionId === 'top') {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth',
+      });
     } else {
-      setShowMenu(true); // Show menu on scroll up
+      const section = document.getElementById(sectionId);
+      if (section) {
+        section.scrollIntoView({
+          behavior: 'smooth',
+          block: 'start',
+        });
+      }
     }
-    setLastScrollY(window.scrollY);
   };
 
-  useEffect(() => {
-    window.addEventListener('scroll', controlMenu);
+	useEffect(() => {
+    const handleScroll = () => {
+      const sections = document.querySelectorAll('section'); // Get all section elements
+      const scrollPos = window.scrollY; // Current scroll position
+      const windowHeight = window.innerHeight; // Height of the viewport
+      const documentHeight = document.body.offsetHeight; // Total height of the document
+      const offset = 50; // Offset to check above the section
+
+      // Check if scrolled to the top
+      if (scrollPos < 500) {
+        setActiveSection('top'); // Set active section to 'top' (Home)
+        return;
+      }
+			
+      // Check if scrolled to the bottom
+      if (scrollPos + windowHeight >= documentHeight -20) {
+        setActiveSection('contact'); // Set active section to 'contact'
+        return;
+      }
+
+			else {
+				// Check which section is currently in view
+				sections.forEach((section) => {
+					const sectionTop = section.offsetTop; // Section top position
+					const sectionHeight = section.offsetHeight; // Section height
+	
+					// Check if the current scroll position is within the section with offset
+					if (scrollPos + offset >= sectionTop && scrollPos < sectionTop + sectionHeight) {
+						setActiveSection(section.id); // Update active section
+					}
+				});
+			}
+
+
+    };
+
+    window.addEventListener('scroll', handleScroll); // Add scroll event listener
 
     return () => {
-      window.removeEventListener('scroll', controlMenu);
+      window.removeEventListener('scroll', handleScroll); // Clean up on unmount
     };
-  }, [lastScrollY]);
+  }, []);
 
   return (
     <div className="App">
-      <header>
+       <header>
         <nav className="navbar">
-          <div className="logo-container">
-            <img src={faceshot} alt="Logo" className="logo-image" />
-            <div className="logo">
-              Tomas Smitas <br />
-              <span className="subtitle">(Full Stack Developer)</span>
-            </div>
-          </div>
-          <div className="welcome">
-            Welcome
-          </div>
-          <div className="social-media">
-            <a href="https://github.com/C00276177Tomas" target="_blank" rel="noopener noreferrer">
-              <img src={githubLogo} alt="GitHub" className="social-logo" />
-            </a>
-            <a href="https://www.linkedin.com/in/tomas-smitas-a43aa2104/" target="_blank" rel="noopener noreferrer">
-              <img src={linkedInLogo} alt="GitHub" className="social-logo" />
-            </a>
-          </div>
-          <div className={`menu ${showMenu ? 'show' : 'hide'}`}>
-            <ul className="nav-links">
-              <li><a href="#intro">Introduction</a></li>
-              <li><a href="#experience">Experience</a></li>
-              <li><a href="#projects">Projects</a></li>
-              <li><a href="#contact">Contact</a></li>
-            </ul>
-          </div>
+          <ul className="nav-links centered">
+					<li>
+							<a href="#" onClick={(e) => scrollToSection(e, 'top')} className={activeSection === 'top' ? 'active' : ''}>Home</a>
+					</li>
+					<li>
+							<a href="#intro" onClick={(e) => scrollToSection(e, 'intro')} className={activeSection === 'intro' ? 'active' : ''}>Introduction</a>
+					</li>
+					<li>
+							<a href="#experience" onClick={(e) => scrollToSection(e, 'experience')} className={activeSection === 'experience' ? 'active' : ''}>Experience</a>
+					</li>
+					<li>
+							<a href="#machineLearning" onClick={(e) => scrollToSection(e, 'machineLearning')} className={activeSection === 'machineLearning' ? 'active' : ''}>Machine Learning</a>
+					</li>
+					<li>
+							<a href="#projects" onClick={(e) => scrollToSection(e, 'projects')} className={activeSection === 'projects' ? 'active' : ''}>Projects</a>
+					</li>
+					<li>
+							<a href="#contact" onClick={(e) => scrollToSection(e, 'contact')} className={activeSection === 'contact' ? 'active' : ''}>Contact</a>
+					</li>
+          </ul>
         </nav>
       </header>
 
       <main>
+			<section className="main-section">
+				<section id="profile" className="profile-section">
+					{/* <img src={faceshot} alt="Profile" className="profile-image" /> */}
+					<div className="profile-content">
+						<h1 className="welcome-message">Welcome</h1>
+						<p className="job-description">
+							Hi, my name is Tomas Smitas. I am a Full Stack Software Developer & Data Scientist.
+						</p>
+						<p className="job-description">
+								<a 
+										href="#intro" 
+										className="scroll-link" 
+										id="scroll-link" 
+										onClick={(e) => scrollToSection(e, 'intro')} // Call the scroll function with 'intro'
+								>
+										Scroll down for more
+								</a>
+						</p>
+					</div>
+				</section>
         <section id="intro">
-          <h1>My Vision and Passion</h1>
+					<h2>About Me</h2>
           <p>
             For me, the core of software development is functionality. I value simplicity and clarity, focusing on creating both 
             intuitive frontends and efficient backends. My goal is to develop solutions that effectively address real-world problems 
@@ -109,11 +172,104 @@ function App() {
               </ul>
           </div>
         </section>
+				<section id="machineLearning">
+          <h2>Machine Learning</h2>
+          <div class="job">
+						<h3>Predicting Student Final Grades Using Multidimensional Linear Regression</h3>
+						
+						<p><strong>Introduction</strong></p>
+						<p>In this project, I will use a dataset from DataWorld, containing information about students behaviors and previous academic 
+							performance, to predict their final grades. The goal is to use a multidimensional linear regression model to analyse the impact
+							 of various factors on students final outcomes.</p>
+						
+						<p><strong>Business Objectives</strong></p>
+						<p>The objective of this project is to determine whether student behavior, study habits, and previous grades can be used to 
+							accurately predict final grades. This information can be useful for educators, academic advisors, and students themselves 
+							to understand what factors contribute to academic success.</p>
+						
+						<p><strong>Situation Assessment</strong></p>
+						<p>The key performance indicator for this project will be the root mean square error &#40;RMSE&#41;, which will measure the 
+							accuracy of the grade predictions. A lower RMSE indicates a more accurate model. Additionally, understanding the significance 
+							of various input variables &#40;such as study time, social activities, and prior performance&#41; will help identify which
+							 factors are most critical in predicting student success.</p>
+						
+						<p><strong>Data Collection</strong></p>
+						<p>The dataset used in this project was sourced from DataWorld. It is publicly accessible at the
+							 following link:  
+							<a href="https://data.world/uci/student-performance" target="_blank">https://data.world/uci/student-performance</a>. It consists of two files that contain similar types of data, one
+							 with just under 400 records and the other with around 650 records. These datasets were merged to create a larger dataset with 
+							 over 1,000 records and 33 variables, including factors like the ones mentioned below in the specified_columns.</p>
+						<img src={mergeDatasets} alt="merge Datasets"></img>
+						
+						<p><strong>Data Cleaning</strong></p>
+						<p>First, the columns were selected to be used as independent variables, and the dataset was filtered to include only these 
+							columns along with the dependent variable. The figure above shows the chosen variables. During my data cleaning process, I 
+							looped through each column and checked for any missing values (nulls). If I found any null values, I replaced them with the 
+							median of that specific column. This approach ensured that the data was complete and ready for analysis, allowing me to retain 
+							important information without removing rows with missing data, keeping in mind that I have a small dataset.</p>
+						<img src={dataCleaning} alt="data cleaning"></img>
+
+						<p><strong>Data Quality Verification</strong></p>
+						<p>The dataset was sourced from DataWorld, a reputable platform for high-quality datasets.
+						 The dataset is relatively small, with a total size of 150 KB, making it easy to work with. DataWorld also provides a
+						 discussion section where users can share insights and questions about the dataset, along with an activity tab for tracking 
+						 updates and community engagement.</p>
+						
+						<p><strong>Model Selection</strong></p>
+						<p>A linear regression model was selected due to its effectiveness and efficiency, especially given that all of our data is numeric.
+							 The independent variables, including travel time, study time, failures, free time, going out, health, absences, and previous 
+							 grades (G1 and G2), were utilised to predict the dependent variable, which is the final grade (G3). The model was trained using
+							  a portion of the dataset, and its performance was evaluated on the remaining data using the root mean square error (RMSE) as the
+								 evaluation metric.</p>
+
+						
+						<p><strong>Model Evaluation</strong></p>
+						<p>After training the model, the Root Mean Square Error was calculated to assess its performance. </p>
+						<img src={rootMeanSquareError} alt="Root Mean Square Error"></img>
+						<p>The calculated RMSE indicates that the predictions were relatively accurate, with an average error of approximately 1.5 degrees.</p>
+
+						<p><strong>Results</strong></p>
+						<p>The results showed that previous grades
+							 &#40;G1, G2&#41; were the most significant predictors of the final grade. Other factors, such as study time and free time, 
+							 had a smaller but still noticeable impact. Interestingly, social activities (going out with friends) and health 
+							 status were less influential than expected, indicating that academic performance might not be as directly tied to social 
+							 behavior as initially thought. </p>
+
+						<p><strong>Validation & Testing</strong></p>
+						<p>In the image below, you can see that the dataset was split into 60% for model training, 20% for validation, and 20% for testing.</p>
+						<img src={splitingModel} alt="spliting model"></img>
+						<p>The Root Mean Square Error (RMSE) was calculated for the validation and testing set, indicating that the model was highly accurate.</p>
+						<img src={validationRMSE} alt="validation RMSE"></img>
+
+							 
+						<p><strong>Conclusion</strong></p>
+						<p>This project demonstrates the power of linear regression in predicting student performance based on behavioral and academic data.
+							 The findings suggest that past academic performance is the strongest predictor of future success, while other factors like study 
+							 habits and free time also play a role. These insights can help educators develop targeted interventions to improve student outcomes
+							  by focusing on key factors.</p>
+						<p>Further improvements can be made by exploring more complex models like decision trees or random forests, which may capture 
+							non-linear relationships between the variables. Additionally, incorporating more detailed data about student motivation, engagement,
+							 and learning environments could improve the model's accuracy and predictive power.</p>
+
+						<p><strong>Acknowledgements</strong></p>
+						<p><a href="https://data.world/" target="_blank">DataWorld</a> - dataset collection</p>
+						<p>Lecturer Dr. Greg Doyle's notes</p>
+						<p><a href="https://github.com/jakevdp" target="_blank">Jake Vanderplas - Python Data Science Handbook</a></p>
+						<p><a href="https://www.youtube.com/@codebasics" target="_blank">CodeBasics</a> - YouTube channel</p>
+
+					</div><br></br><br></br><br></br>
+
+          <div class="job">
+						<h3>Predicting Student Final Grades Using Multidimensional Linear Regression</h3>
+						<p><strong>Introduction</strong></p>
+						<p>This i</p>
+          </div>
+        </section>
         <section id="projects">
           <h2>Projects</h2>
 
           <div class="project">
-            <h2>Portfolio Website – Web Development</h2>
+            <h3>Portfolio Website – Web Development</h3>
             <p><strong>Technologies:</strong> React, JavaScript, HTML, CSS</p>
             <p>This portfolio website showcases my projects and skills in software development. It is built using React, JavaScript, HTML, 
               CSS to provide an interactive and responsive experience. The site features a clean, modern design with sections for my experience, 
@@ -122,26 +278,26 @@ function App() {
           </div>
 
           <div class="project">
-            <h2>Swimmer Performance Tracker – Cloud Development</h2>
+            <h3>Swimmer Performance Tracker – Cloud Development</h3>
             <p><strong>Technologies:</strong> Python</p>
             <p>In this project, I developed a Swimming Performance Tracker application using Python. The app connects to a database hosted on PythonAnywhere, where it retrieves data on swimmers' times and the types of swims. Using this data, the application dynamically renders a user-friendly interface that allows swimmers and coaches to visualize performance trends over time. The core feature is a chart that plots the swimmers' times against the type of swim, providing valuable insights into their progress and areas that need improvement.</p>
             <p>Check it out at: <a href="https://c00276177.pythonanywhere.com/" target="_blank">https://c00276177.pythonanywhere.com/</a></p>
           </div>
 
           <div class="project">
-              <h2>Website API – Web Development</h2>
+              <h3>Website API – Web Development</h3>
               <p><strong>Technologies:</strong> PHP, JavaScript, CSS</p>
               <p>In this project, an employee can log in and add, view, amend, delete, and fully manage personal data. I used the Plesk API to access and manipulate the database tables.</p>
           </div>
 
           <div class="project">
-              <h2>Sales System – Object-Oriented Programming</h2>
+              <h3>Sales System – Object-Oriented Programming</h3>
               <p><strong>Technologies:</strong> Java, MySQL Workbench</p>
               <p>In this project, I created a system to manage customers using a Java GUI that retrieves data from an updatable database. The user can create, retrieve, update, and delete data as required.</p>
           </div>
 
           <div class="project">
-              <h2>Endless Runner Game – Computer Architecture</h2>
+              <h3>Endless Runner Game – Computer Architecture</h3>
               <p><strong>Technologies:</strong> Assembly</p>
               <p>This game leverages assembly language to create an engaging endless runner experience. It features multiple levels with increasing difficulty, background music, and special effect sounds to enhance gameplay. Key elements include a random number generator, scoring system, lives, a collision detector, and vibrant colors. The game combines these components to offer a challenging and immersive gaming experience.</p>
 
@@ -164,17 +320,18 @@ function App() {
           </div>
 
           <div class="project">
-              <h2>Undertakers Website – Team Project</h2>
+              <h3>Undertakers Website – Team Project</h3>
               <p><strong>Technologies:</strong> PHP, JavaScript, CSS</p>
               <p>In this team project, we developed a website for an undertaker business that allows users to add customers, manage details, create invoices, calculate payments, list customers, and list invoices among other features.</p>
           </div>
 
           <div class="project">
-              <h2>Self-Checkout System – System Analysis</h2>
+              <h3>Self-Checkout System – System Analysis</h3>
               <p><strong>Technologies:</strong> System Analysis</p>
               <p>In this analysis, I created sequence diagrams, class diagrams, use case diagrams, and test cases for the self-checkout system.</p>
           </div>
         </section>
+			</section>
       </main>
       <footer>
         <section id="contact">
