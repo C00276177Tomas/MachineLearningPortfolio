@@ -1,17 +1,22 @@
 {
   "files": {
-    "main.css": "/MachineLearningPortfolio/static/css/main.ecb7c692.css",
-    "main.js": "/MachineLearningPortfolio/static/js/main.73b68a90.js",
+    "main.css": "/MachineLearningPortfolio/static/css/main.d27f700f.css",
+    "main.js": "/MachineLearningPortfolio/static/js/main.9ea1f2a6.js",
+    "static/media/background.jpg": "/MachineLearningPortfolio/static/media/background.e31c5453bedbb3d17a1c.jpg",
     "static/media/codeAssemblyProject.png": "/MachineLearningPortfolio/static/media/codeAssemblyProject.065bbb5f319f67c75794.png",
     "static/media/faceshot.jpg": "/MachineLearningPortfolio/static/media/faceshot.a535796da1ebf60ad2f5.jpg",
+    "static/media/SplitingModel802020.png": "/MachineLearningPortfolio/static/media/SplitingModel802020.80af1399d858d3d6466d.png",
+    "static/media/RootMeanSquareError.png": "/MachineLearningPortfolio/static/media/RootMeanSquareError.3a33ad57a3f93615d587.png",
+    "static/media/ValidationRMSE.png": "/MachineLearningPortfolio/static/media/ValidationRMSE.0d0c42ca6e02c7e19335.png",
+    "static/media/mergeDatasets.png": "/MachineLearningPortfolio/static/media/mergeDatasets.961131f1219744d773a8.png",
     "static/media/level2AssemblyProject.png": "/MachineLearningPortfolio/static/media/level2AssemblyProject.18055155f457d8cf448f.png",
     "static/media/level1AssemblyProject.png": "/MachineLearningPortfolio/static/media/level1AssemblyProject.37665738a83f9f601cbb.png",
     "index.html": "/MachineLearningPortfolio/index.html",
-    "main.ecb7c692.css.map": "/MachineLearningPortfolio/static/css/main.ecb7c692.css.map",
-    "main.73b68a90.js.map": "/MachineLearningPortfolio/static/js/main.73b68a90.js.map"
+    "main.d27f700f.css.map": "/MachineLearningPortfolio/static/css/main.d27f700f.css.map",
+    "main.9ea1f2a6.js.map": "/MachineLearningPortfolio/static/js/main.9ea1f2a6.js.map"
   },
   "entrypoints": [
-    "static/css/main.ecb7c692.css",
-    "static/js/main.73b68a90.js"
+    "static/css/main.d27f700f.css",
+    "static/js/main.9ea1f2a6.js"
   ]
 }
