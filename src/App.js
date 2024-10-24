@@ -178,9 +178,9 @@ function App() {
 						<h3>Predicting Student Final Grades Using Multidimensional Linear Regression</h3>
 						
 						<p><strong>Introduction</strong></p>
-						<p>In this project, a dataset from DataWorld will be used, containing information about students behaviors and previous academic 
+						<p>In this project, a dataset from DataWorld is used, containing information about students behaviors and previous academic 
 							performance, to predict their final grades. The goal is to use a multidimensional linear regression model to analyse the impact
-							 of various factors on students final outcomes.</p>
+							 of various factors on students final grades. Some of these variables include study time, free time, previous grades.</p>
 						
 						<p><strong>Business Objectives</strong></p>
 						<p>The objective of this project is to determine whether student behavior, study habits, and previous grades can be used to 
@@ -284,7 +284,7 @@ function App() {
           <div class="job">
 						<h3>Predicting The Price Of Cars Using Decision Tree Algorithm (C4.5)</h3>
 						<p><strong>Introduction</strong></p>
-						<p>In this project, a dataset from Kaggle will be used, containing information about cars like location,
+						<p>In this project, a dataset from Kaggle is used, containing information about cars like location,
 							 year of manufacture, kilometers, fuel type, transmission type, number of owners, engine cc, break horse power, seats to predict 
 							 the price. Using a decision tree is optimal since there is too much categorical data to do linear regression.</p>
 
