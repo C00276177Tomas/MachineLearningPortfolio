@@ -130,6 +130,12 @@ h2 {
   position: relative; /* Required for absolute positioning of the pseudo-element */
 }
 
+h3 {
+  color: #333;
+  font-size: 2em;
+  position: relative; /* Required for absolute positioning of the pseudo-element */
+}
+
 h2::after {
   content: ""; /* Required for the pseudo-element */
   display: block; /* Makes the pseudo-element a block element */

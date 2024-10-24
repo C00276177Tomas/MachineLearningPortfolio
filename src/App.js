@@ -178,7 +178,7 @@ function App() {
 						<h3>Predicting Student Final Grades Using Multidimensional Linear Regression</h3>
 						
 						<p><strong>Introduction</strong></p>
-						<p>In this project, I will use a dataset from DataWorld, containing information about students behaviors and previous academic 
+						<p>In this project, a dataset from DataWorld will be used, containing information about students behaviors and previous academic 
 							performance, to predict their final grades. The goal is to use a multidimensional linear regression model to analyse the impact
 							 of various factors on students final outcomes.</p>
 						
@@ -193,12 +193,33 @@ function App() {
 							of various input variables &#40;such as study time, social activities, and prior performance&#41; will help identify which
 							 factors are most critical in predicting student success.</p>
 						
+							<p><strong>Tools & Technologies</strong></p>
+							<ul>
+								<li><strong>Excel</strong>: Used for initial data exploration and cleaning. Excel helped in understanding the structure of the 
+								dataset, identifying missing values, and performing preliminary statistical analysis before deeper modeling. It was particularly 
+								useful for visualising trends in the final grades (G1), (G2) and (G3).</li>
+								<br></br>
+								<li><strong>Python</strong>: The core programming language used to implement the linear regression model. Python allowed for
+								 the integration of different libraries such as NumPy and Pandas for efficient data manipulation and analysis. It also
+								  facilitated the model training and evaluation process to predict final student grades.</li>
+									<br></br>
+								<li><strong>NumPy</strong>: Used to handle the numerical computations needed for the linear regression model.</li>
+								<br></br>
+								<li><strong>Google Colab</strong>: Provided an online environment for writing and running the Python code for the linear
+								 regression model. Colabs GPU support and easy access to Jupyter notebooks made it convenient to develop, experiment with,
+								  and test the model without worrying about local hardware limitations.</li>
+								<br></br>
+								<li><strong>Pandas</strong>: Employed to manage and manipulate the dataset effectively. Pandas was used to merge, clean, 
+								and preprocess the data, and to select the relevant variables for the model.</li>
+							</ul>
 						<p><strong>Data Collection</strong></p>
-						<p>The dataset used in this project was sourced from DataWorld. It is publicly accessible at the
-							 following link:  
-							<a href="https://data.world/uci/student-performance" target="_blank">https://data.world/uci/student-performance</a>. It consists of two files that contain similar types of data, one
-							 with just under 400 records and the other with around 650 records. These datasets were merged to create a larger dataset with 
-							 over 1,000 records and 33 variables, including factors like the ones mentioned below in the specified_columns.</p>
+						<p>The dataset used in this project was sourced from DataWorld. It is publicly accessible at the following 
+							link: <a href="https://data.world/uci/student-performance" target="_blank">https://data.world/uci/student-performance</a>. 
+							It consists of two files containing similar types of data, one with just under 400 records and the other with around 650 
+							records. These datasets were merged to create a larger dataset with over 1,000 records and 33 variables. Out of these 33 
+							variables, 10 were selected for use in the linear regression algorithm. These columns were chosen because they contain 
+							continuous data, which is ideal for linear regression. The independant columns are defined in the figure below in the 
+							`specified_columns` variable.</p>
 						<img src={mergeDatasets} alt="merge Datasets"></img>
 						
 						<p><strong>Data Cleaning</strong></p>
@@ -226,7 +247,8 @@ function App() {
 						<p><strong>Model Evaluation</strong></p>
 						<p>After training the model, the Root Mean Square Error was calculated to assess its performance. </p>
 						<img src={rootMeanSquareError} alt="Root Mean Square Error"></img>
-						<p>The calculated RMSE indicates that the predictions were relatively accurate, with an average error of approximately 1.5 degrees.</p>
+						<p>The calculated RMSE indicates that the predictions were relatively accurate, with an average error of approximately 1.56 . When 
+							taking into context that the final grade ranges from 0 to 15 an average devaition of 1.56 is fairly accurate.</p>
 
 						<p><strong>Results</strong></p>
 						<p>The results showed that previous grades
@@ -260,9 +282,28 @@ function App() {
 					</div><br></br><br></br><br></br>
 
           <div class="job">
-						<h3>Predicting Student Final Grades Using Multidimensional Linear Regression</h3>
+						<h3>Predicting The Price Of Cars Using Decision Tree Algorithm (C4.5)</h3>
 						<p><strong>Introduction</strong></p>
-						<p>This i</p>
+						<p>In this project, a dataset from Kaggle will be used, containing information about cars like location,
+							 year of manufacture, kilometers, fuel type, transmission type, number of owners, engine cc, break horse power, seats to predict 
+							 the price. Using a decision tree is optimal since there is too much categorical data to do linear regression.</p>
+
+						<p><strong>Business Objectives</strong></p>
+						<p>The objective of this project is to determine whether location,
+						year of manufacture, kilometers, fuel type, transmission type, number of owners, engine cc, break horse power, seats 
+						can be used to accurately predict the price.</p>
+						<p>The results from this project can help car dealerships, buyers, and businesses in the used car market to make better decisions 
+							about pricing. Dealerships can use these results to set more accurate prices, while buyers can use them to find better deals.</p>
+
+						<p><strong>Situation Assessment</strong></p>
+						<p>The key performance indicator for this project will be the accuracy of the decision tree model, which will be evaluated
+							using metrics like accuracy score. A higher accuracy score indicates a more effective model in 
+							classifying student grades.</p>
+
+						<p><strong>Acknowledgements</strong></p>
+						<p><a href="https://www.kaggle.com/datasets/CooperUnion/cardataset" target="_blank">Kaggle</a> - dataset collection</p>
+						<p>Lecturer Dr. Greg Doyle's notes</p>
+						
           </div>
         </section>
         <section id="projects">
