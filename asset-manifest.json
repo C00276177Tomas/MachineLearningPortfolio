@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/MachineLearningPortfolio/static/css/main.d27f700f.css",
-    "main.js": "/MachineLearningPortfolio/static/js/main.9ea1f2a6.js",
+    "main.css": "/MachineLearningPortfolio/static/css/main.8c5436d9.css",
+    "main.js": "/MachineLearningPortfolio/static/js/main.57085eaf.js",
     "static/media/background.jpg": "/MachineLearningPortfolio/static/media/background.e31c5453bedbb3d17a1c.jpg",
     "static/media/codeAssemblyProject.png": "/MachineLearningPortfolio/static/media/codeAssemblyProject.065bbb5f319f67c75794.png",
     "static/media/faceshot.jpg": "/MachineLearningPortfolio/static/media/faceshot.a535796da1ebf60ad2f5.jpg",
@@ -12,11 +12,11 @@
     "static/media/level2AssemblyProject.png": "/MachineLearningPortfolio/static/media/level2AssemblyProject.18055155f457d8cf448f.png",
     "static/media/level1AssemblyProject.png": "/MachineLearningPortfolio/static/media/level1AssemblyProject.37665738a83f9f601cbb.png",
     "index.html": "/MachineLearningPortfolio/index.html",
-    "main.d27f700f.css.map": "/MachineLearningPortfolio/static/css/main.d27f700f.css.map",
-    "main.9ea1f2a6.js.map": "/MachineLearningPortfolio/static/js/main.9ea1f2a6.js.map"
+    "main.8c5436d9.css.map": "/MachineLearningPortfolio/static/css/main.8c5436d9.css.map",
+    "main.57085eaf.js.map": "/MachineLearningPortfolio/static/js/main.57085eaf.js.map"
   },
   "entrypoints": [
-    "static/css/main.d27f700f.css",
-    "static/js/main.9ea1f2a6.js"
+    "static/css/main.8c5436d9.css",
+    "static/js/main.57085eaf.js"
   ]
 }
