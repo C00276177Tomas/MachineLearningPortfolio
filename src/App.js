@@ -1,6 +1,9 @@
+// By: Tomas Smitas
+// Date: 2024
+// Development: Assisted by chatGPT
+
 import React, { useState, useEffect } from 'react';
 import './App.css';
-import faceshot from './images/faceshot.jpg'; // Import the image
 import githubLogo from './images/github.png';
 import linkedInLogo from './images/linkedIn.png';
 import level1Assembly from './images/level1AssemblyProject.png';
@@ -11,6 +14,15 @@ import splitingModel from './images/SplitingModel802020.png';
 import validationRMSE from './images/ValidationRMSE.png';
 import dataCleaning from './images/filterDataset.png';
 import mergeDatasets from './images/mergeDatasets.png';
+import missingValues from './images/MissingValues.png';
+import accuracyScore from './images/accuracyScore.png';
+import confusionMatrix from './images/ConfusionMatrix.png';
+import importance from './images/importance.png';
+import f1Score from './images/F1_curve.png';
+import pScore from './images/P_curve.png';
+import rScore from './images/R_curve.png';
+import importRoboflow from './images/importFromRoboflow.png';
+import traingModel from './images/trainModel.png';
 
 function App() {
 
@@ -174,7 +186,12 @@ function App() {
         </section>
 				<section id="machineLearning">
           <h2>Machine Learning</h2>
-          <div class="job">
+					<div class="machineLearning-navigation">
+							<a href="#machineLearning1">Multidimensional Linear Regression Project</a>
+							<a href="#machineLearning2">Random Forest Classifier Project</a>
+							<a href="#machineLearning3">Convolutional Neural Networks Project</a>
+					</div>
+          <div id="machineLearning1" class="job">
 						<h3>Predicting Student Final Grades Using Multidimensional Linear Regression</h3>
 						
 						<p><strong>Introduction</strong></p>
@@ -209,7 +226,7 @@ function App() {
 								 regression model. Colabs GPU support and easy access to Jupyter notebooks made it convenient to develop, experiment with,
 								  and test the model without worrying about local hardware limitations.</li>
 								<br></br>
-								<li><strong>Pandas</strong>: Employed to manage and manipulate the dataset effectively. Pandas was used to merge, clean, 
+								<li><strong>Pandas</strong>: Used to manage and manipulate the dataset effectively. Pandas was used to merge, clean, 
 								and preprocess the data, and to select the relevant variables for the model.</li>
 							</ul>
 						<p><strong>Data Collection</strong></p>
@@ -276,35 +293,235 @@ function App() {
 						<p><strong>Acknowledgements</strong></p>
 						<p><a href="https://data.world/" target="_blank">DataWorld</a> - dataset collection</p>
 						<p>Lecturer Dr. Greg Doyle's notes</p>
-						<p><a href="https://github.com/jakevdp" target="_blank">Jake Vanderplas - Python Data Science Handbook</a></p>
+						<p><a href="https://github.com/jakevdp/PythonDataScienceHandbook/blob/master/notebooks_v1/05.06-Linear-Regression.ipynb" target="_blank">Jake Vanderplas - Python Data Science Handbook - 05.06-Linear-Regression</a></p>
 						<p><a href="https://www.youtube.com/@codebasics" target="_blank">CodeBasics</a> - YouTube channel</p>
 
-					</div><br></br><br></br><br></br>
+					</div><br></br><br></br>
 
-          <div class="job">
-						<h3>Predicting The Price Of Cars Using Decision Tree Algorithm (C4.5)</h3>
+          <div id="machineLearning2" class="job">
+						<h3>Predicting The Price Of Cars Using Random Forest Classifier</h3>
 						<p><strong>Introduction</strong></p>
-						<p>In this project, a dataset from Kaggle is used, containing information about cars like location,
-							 year of manufacture, kilometers, fuel type, transmission type, number of owners, engine cc, break horse power, seats to predict 
-							 the price. Using a decision tree is optimal since there is too much categorical data to do linear regression.</p>
+						<p>In this project, a dataset from Kaggle is used, containing information about cars like make, year of manufacture, transmission,
+							 fuel type, number of doors, engine HP, size to predict the price. A bigger dataset would 
+							 have been better, but none could be obtained. This is the biggest dataset that could be sourced for this project. Using a decision 
+							 tree is optimal since there is too much categorical data to do linear regression.</p>
 
 						<p><strong>Business Objectives</strong></p>
-						<p>The objective of this project is to determine whether location,
-						year of manufacture, kilometers, fuel type, transmission type, number of owners, engine cc, break horse power, seats 
-						can be used to accurately predict the price.</p>
+						<p>The objective of this project is to use decision tree and random forest algorithms to predict the general price of a car. 
+							The price of the car will be turned into categorical data to allow for easier understanding for the user of this data, which 
+							will likely be a customers looking to buy a car. The prediction will be made on the following columns: Make, Model, Year, 
+							Engine Fuel Type, Engine HP, Engine Cylinders, Transmission Type, Driven_Wheels, Number of Doors, Market Category, Vehicle Size, 
+							Vehicle Style, highway MPG, city MPG, Popularity.</p>
 						<p>The results from this project can help car dealerships, buyers, and businesses in the used car market to make better decisions 
 							about pricing. Dealerships can use these results to set more accurate prices, while buyers can use them to find better deals.</p>
 
 						<p><strong>Situation Assessment</strong></p>
-						<p>The key performance indicator for this project will be the accuracy of the decision tree model, which will be evaluated
-							using metrics like accuracy score. A higher accuracy score indicates a more effective model in 
-							classifying student grades.</p>
+						<p>Initially, a decision tree algorithm was used to try and predict the prices, but after revieving the results they were overfitting
+						the data based on the confusion matrix results. I decided to go a step further and use a random forest algorithm to gain a more
+						confident result that is less likely to overfit. The key performance indicator for this project will be the accuracy of the decision tree model, which will be evaluated
+						using metrics like accuracy score and confusion matrix. A higher accuracy score indicates a more effective model in classifying car prices.</p>
+
+						<p><strong>Tools & Technologies</strong></p>
+						<ul>
+								<li><strong>Excel</strong>: Used for initial data exploration and cleaning. Excel helped in understanding the structure of the 
+								dataset, identifying missing values, and performing preliminary statistical analysis before deeper modeling.</li>
+								<br></br>
+								<li><strong>Python</strong>: The core programming language used to implement the random forest algorithm through Google Colab. 
+								Python allowed for the integration of different libraries such as NumPy and Pandas for efficient data manipulation and analysis. 
+								It also facilitated the model training and evaluation process to predict car prices.</li>
+								<br></br>
+								<li><strong>NumPy</strong>: Used to handle the numerical computations needed for the random forest algorithm.</li>
+								<br></br>
+								<li><strong>Google Colab</strong>: Provided an online environment for writing and running the Python code for the random forest
+								algorithm. Colab's GPU support and easy access to Jupyter notebooks made it convenient to develop, experiment with,
+								and test the model without worrying about local hardware limitations.</li>
+								<br></br>
+								<li><strong>Pandas</strong>: Used to manage and manipulate the dataset effectively. Pandas was used to merge, clean, 
+								and preprocess the data, and to select the relevant variables for the model.</li>
+								<br></br>
+								<li><strong>sklearn</strong>: Used for implementing the machine learning pipeline and training the random forest classifier.
+								sklearn provided essential tools for splitting the dataset, preprocessing the data, training the model, and evaluating its
+								performance using metrics like accuracy score and the confusion matrix.</li>
+								<br></br>
+								<li><strong>Confusion Matrix</strong>: 
+								Used to evaluate the performance of the random forest model by comparing actual and predicted categories. The confusion 
+								matrix provided insight into how well the model performed in terms of true positives, true negatives, false positives, and 
+								false negatives.</li>
+								<br></br>
+								<li><strong>Accuracy Score</strong>: A metric used to quantify the overall performance of 
+								the random forest model. The accuracy score helped assess the percentage of correct predictions out of the total predictions 
+								made, providing a straightforward measure of the model's effectiveness.</li>
+						</ul>
+
+						<p><strong>Data Collection</strong></p>
+						<p>The dataset used in this project was sourced from Kaggle. The dataset holds just about 12,000 values. Initially, a government site was looked at for bigger and unfiltered 
+						datasets, but there was no dataset available that fit my needs. The biggest dataset that could be found to predict my target was 
+						sourced from Kaggle. It is publicly accessible at the following 
+						link: <a href="https://www.kaggle.com/datasets/CooperUnion/cardataset" target="_blank">Kaggle</a>.
+						It holds the following columns: Make, Model, Year, 
+						Engine Fuel Type, Engine HP, Engine Cylinders, Transmission Type, Driven_Wheels, Number of Doors, Market Category, Vehicle Size, 
+						Vehicle Style, highway MPG, city MPG, Popularity, and MSRP. After going through all of the columns, it was determined that all of
+						these could be used for predicting the price. Some of the columns would have a higher impact while others not as much.
+						</p>
+
+						<p><strong>Data Cleaning</strong></p>
+						<p>The first step taken for data cleaning was getting rid of the rows that had null values, as the random forest 
+						algorithm could not be used on null values. A Jupyter notebook was used to loop through each row and evaluate any rows that had
+						missing values. The figure below shows the missing values in each variable. After assessing the situation and realising that removing
+						nearly 4,000 rows was not an option, a closer look was taken into the 'Market Category' column. After assessing this column, a decision 
+						was made to remove it because it was unlikely to have a big impact on the price prediction result. This column was removed from
+						the dataset, and the rows with null values were also removed. This returned a dataset that was complete with values.</p>
+						<img src={missingValues} alt="data cleaning"></img>
+
+						<p><strong>Data Quality Verification</strong></p> 
+						<p>The dataset was sourced from Kaggle, a reputable platform for 
+						high-quality datasets. The dataset is the largest found for my intended prediction. Kaggle provides a collaborative environment
+						where users share insights, solutions, and improvements, which further enhances the reliability and usability of the datasets.</p>
+
+						<p><strong>Model Selection</strong></p> 
+						<p>Initially, a decision tree algorithm was applied to the dataset to predict car 
+						MSRP categories. While the decision tree provided a reasonable baseline with acceptable predictions, it was prone 
+						to overfitting, limiting its generalisation to unseen data. To address this, I selected a random forest algorithm. 
+						Random forests reduce overfitting by averaging the predictions across multiple trees, making them more robust and accurate. This approach significantly improved the 
+						model's performance and ensured better reliability in predicting car price categories.</p>
+						
+						<p><strong>Model Evaluation</strong></p>
+						<p>After training the model, the accuracy score and the confusion matrix were calculated and represented to assess its performance.
+							See figures below. </p>
+						<img src={accuracyScore} alt="Accuracy Score"></img>
+						<p>In the figure we can see that the F1 accuracy score is 92% which is fairly high. This means that 92% of predictions are correct. </p>
+						<img src={confusionMatrix} alt="Confusion Matrix"></img>
+						<p>The confusion matrix shows us how the true values plot against the predicted. It helps us determine if the false/true predictions are leaning
+							a certain direction which can be crutial in areas such as illness predictions. For example a false prediction that should be true for
+							someone that is sick is much worse than a true prediction that should be false. Since the person that is actually sick may not get the
+							treatment in time while the person that is not actually sick will likely just waste a bit of time.</p>
+
+						<p><strong>Results</strong></p>
+						<p>The model achieved 92% accuracy in classifying cars into MSRP categories. Features such as 'Year', 'Engine HP', and 'Engine Fuel' 
+							contributed to the predictions, while variables like 'Popularity' had less impact. The results highlight the model’s ability to 
+							make reliable predictions across diverse car features. In the figure below, we can see that 'Year' had the largest impact with 
+							14% importance.</p>
+						<img src={importance} alt="Importance"></img>
+
+						<p><strong>Conclusion</strong></p>
+						<p>This project showcases the effectiveness of the Random Forest algorithm in predicting car MSRP categories based on various 
+							features such as engine power, fuel type, and vehicle specifications. The results indicate that key attributes like 'Engine HP' 
+							and 'Year' have a significant impact on the predictions, while others, such as specific car models, have less influence. 
+							These insights can guide automotive companies in pricing strategies and provide valuable information for consumers making 
+							purchasing decisions.</p>
 
 						<p><strong>Acknowledgements</strong></p>
 						<p><a href="https://www.kaggle.com/datasets/CooperUnion/cardataset" target="_blank">Kaggle</a> - dataset collection</p>
 						<p>Lecturer Dr. Greg Doyle's notes</p>
+						<p><a href="https://github.com/jakevdp/PythonDataScienceHandbook/blob/master/notebooks_v1/05.08-Random-Forests.ipynb" target="_blank">Jake Vanderplas - Python Data Science Handbook - 05.08-Random-Forests</a></p>
 						
-          </div>
+						
+          </div><br></br><br></br>
+
+					<div id="machineLearning3" class="job">
+
+					<h3>Object Detection For Helmets Using Convolutional Neural Networks (CNNs)</h3>
+						<p><strong>Introduction</strong></p>
+						<p>This project focuses on using object detection algorithm (CNNs) to detect helmets. The YOLO (You Only Look Once) model, 
+							implemented with the Ultralytics library, is used in conjunction with OpenCV for real-time video processing. 
+							The dataset was sourced from public repositories and  was preannotated on Roboflow. The annotations were revised to optimise 
+							the model.</p>
+
+						<p><strong>Business Objectives</strong></p>
+						<p>The primary goal of this project is to improve safety by detecting helmets and no helmets. Using YOLO and OpenCV, the model detects whether 
+							people are wearing helmets in real-time video feeds. This can prevent accidents, ensure compliance with safety regulations, 
+							and minimise workplace hazards.</p>
+
+						<p>The system’s results can be used by construction managers, safety officers, insurance companies and many others to enhance 
+							safety protocols, reduce liability, and improve worker protection.</p>
+
+						<p><strong>Situation Assessment</strong></p>
+						<p>Traditional methods of monitoring safety often rely on manual observation, which can be time-consuming and 
+							prone to human error. Using YOLO for object detection offers a scalable and automated solution. YOLO’s fast inference and accuracy 
+							are critical for real-time applications, and OpenCV ensures efficient video processing. The performance of the system is 
+							evaluated using metrics such as precision, recall, and F1-score to measure its effectiveness in detecting helmet violations.</p>
+
+						<p><strong>Tools & Technologies</strong></p>
+						<ul>
+								<li><strong>Ultralytics YOLO</strong>: Used for implementing  the object detection model. The Ultralytics library simplifies 
+								the integration of YOLO models.</li>
+								<br></br>
+								<li><strong>OpenCV</strong>: Facilitates real-time video stream processing and visualisation. OpenCV is critical for 
+								preprocessing video input and displaying detection results.</li>
+								<br></br>
+								<li><strong>Google Colab</strong>: Provides an environment with GPU support for training the YOLO model. 
+								Colab’s cloud infrastructure enables quick experimentation and model optimisation without requiring local resources.</li>
+								<br></br>
+								<li><strong>Python</strong>: The programming language used to build the system, combining YOLO and OpenCV.</li>
+								<br></br>
+						</ul>
+
+						<p><strong>Data Collection</strong></p>
+						<p>The dataset used for training the model was sourced from Roboflows publicly available repositories. It contains just over
+							7000 of annotated images with class's for helmets and noHelmets. The dataset was augmented to improve the model by implemeting the following 
+							augmentations: Rotations, Crops, Grayscale and Blur.</p>
+						
+						<p>The images were already annotated but they were checked over and adjusted to ensure accurate labeling. The dataset was divided 
+							into training, validation, and testing sets, with a 70/20/10 split for effective model evaluation.</p>
+
+						<p><strong>Data Cleaning</strong></p>
+						<p>Data cleaning involved ensuring consistent annotations and removing duplicates or mislabeled images. Images with poor visibility 
+							or low resolution were excluded to maintain data quality. </p>
+
+						<p><strong>Data Quality Verification</strong></p>
+						<p>The dataset was verified through visualisation of annotations. The training process was monitored to ensure the model was 
+							learning effectively, and sample predictions were manually reviewed to confirm detection accuracy.</p>
+
+						<p><strong>Model Selection</strong></p>
+						<p>The YOLOv11 model from the Ultralytics library was selected for its high speed and accuracy in object detection tasks, 
+							it is the latest model of YOLO. YOLO's one-stage detection framework allows real-time processing, which is critical for 
+							live video analysis.</p>
+
+						<p><strong>Model Training</strong></p> <p>The annotated dataset was imported from Roboflow with the following code.</p>
+						<img src={importRoboflow} alt="RoboFlow Import"></img>
+						<p> Roboflow was used to annotate images and export the dataset in a format compatible with the YOLOv11 model.</p> 
+						<p>The training process was conducted using Google Colab, leveraging its GPU support to accelerate computations. 
+							To balance training quality and time constraints, the model was trained for 15 epochs. This duration was chosen due to the 
+							computational intensity required for processing the dataset. Training at 15 epochs took just over 2 hours.</p> 
+						<p>The training utilised the Ultralytics framework, which simplifies object detection model training. 
+							First, a pretrained model from Ultralytics was loaded as a starting point. This approach allowed the model to leverage 
+							features learned from a large generic dataset, speeding up convergence and improving accuracy. 
+							Subsequently, a new model was trained on the annotated dataset, ensuring it was fine-tuned to detect helmets and no helmets.
+							See image below for the code example.</p>
+						<img src={traingModel} alt="Training Model"></img>
+
+						<p><strong>Model Evaluation</strong></p>
+						<p>After training the model, its performance was evaluated using F1-score, recall, and precision metrics. See the figures below 
+							for detailed results.</p>
+						<img src={f1Score} alt="F1" class="responsive-img"></img>
+						<p>The F1-score achieved was 93%, indicating the model's high reliability in detecting helmets and no helmets. 
+							This means that 93% of predictions were correct.</p>
+						<img src={pScore} alt="Precision" class="responsive-img"></img>
+						<p>The precision-confidence curve for the helmet detection project shows that all classes achieve a precision of 1.00 at a 
+							confidence threshold of 0.907. This means that when the model predicts with at least 90.7% confidence, it makes no false 
+							positive detections, ensuring highly reliable predictions for safety equipment detection at higher confidence levels.</p>
+						<img src={rScore} alt="Recall" class="responsive-img"></img>
+						<p>The recall-confidence curve for the helmet detection project shows that all classes achieve a recall of 0.99 at a confidence 
+							threshold of 0.0. This indicates that the model successfully detects 99% of all actual instances across all classes, 
+							even when it predicts with very low confidence, highlighting its effectiveness in minimising missed detections.</p>
+
+						<p><strong>Results</strong></p>
+						<p>The model demonstrated high accuracy in detecting helmets and no helmets in diverse environments. Features such as lighting 
+							conditions and worker positions impacted detection performance, while robust preprocessing techniques mitigated these challenges. 
+							The results affirm the system’s capability to monitor safety effectively.</p>
+
+						<p><strong>Conclusion</strong></p>
+						<p>This project highlights the potential of Ultralytics, YOLO and OpenCV in real-time object detection for enhancing safety. 
+							The system successfully identified safety violations with high accuracy, providing a reliable tool for supervisors and 
+							safety officers. This innovation can significantly reduce workplace accidents, ensuring a safer environment for workers.</p>
+
+						<p><strong>Acknowledgements</strong></p>
+						<p><a href="https://ultralytics.com/" target="_blank">Ultralytics</a> - Documentation, Tutorials, Guides, Framework, Support</p>
+						<p><a href="https://app.roboflow.com/" target="_blank">Roboflow</a> - Dataset annotation and preparation</p>
+						<p><a href="https://opencv.org/" target="_blank">OpenCV</a> - Video stream processing</p>
+						<p>Lecturer Dr. Greg Doyle's notes</p>
+
+					</div>
         </section>
         <section id="projects">
           <h2>Projects</h2>
@@ -321,7 +538,7 @@ function App() {
           <div class="project">
             <h3>Swimmer Performance Tracker – Cloud Development</h3>
             <p><strong>Technologies:</strong> Python</p>
-            <p>In this project, I developed a Swimming Performance Tracker application using Python. The app connects to a database hosted on PythonAnywhere, where it retrieves data on swimmers' times and the types of swims. Using this data, the application dynamically renders a user-friendly interface that allows swimmers and coaches to visualize performance trends over time. The core feature is a chart that plots the swimmers' times against the type of swim, providing valuable insights into their progress and areas that need improvement.</p>
+            <p>In this project, I developed a Swimming Performance Tracker application using Python. The app connects to a database hosted on PythonAnywhere, where it retrieves data on swimmers' times and the types of swims. Using this data, the application dynamically renders a user-friendly interface that allows swimmers and coaches to visualise performance trends over time. The core feature is a chart that plots the swimmers' times against the type of swim, providing valuable insights into their progress and areas that need improvement.</p>
             <p>Check it out at: <a href="https://c00276177.pythonanywhere.com/" target="_blank">https://c00276177.pythonanywhere.com/</a></p>
           </div>
 
