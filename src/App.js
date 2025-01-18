@@ -187,9 +187,10 @@ function App() {
 				<section id="machineLearning">
           <h2>Machine Learning</h2>
 					<div class="machineLearning-navigation">
-							<a href="#machineLearning1">Multidimensional Linear Regression Project</a>
-							<a href="#machineLearning2">Random Forest Classifier Project</a>
-							<a href="#machineLearning3">Convolutional Neural Networks Project</a>
+							<a href="#machineLearning1">Multidimensional Linear Regression</a>
+							<a href="#machineLearning2">Random Forest Classifier</a>
+							<a href="#machineLearning3">Naive Bayes Classifier</a>
+							<a href="#machineLearning4">Convolutional Neural Networks</a>
 					</div>
           <div id="machineLearning1" class="job">
 						<h3>Predicting Student Final Grades Using Multidimensional Linear Regression</h3>
@@ -416,9 +417,116 @@ function App() {
 						<p><a href="https://github.com/jakevdp/PythonDataScienceHandbook/blob/master/notebooks_v1/05.08-Random-Forests.ipynb" target="_blank">Jake Vanderplas - Python Data Science Handbook - 05.08-Random-Forests</a></p>
 						
 						
-          </div><br></br><br></br>
+          </div>
 
 					<div id="machineLearning3" class="job">
+
+					<h3>Spam email detection using Naive Bayes Classifier (NBC)</h3>
+						<p><strong>Problem Definition</strong></p>
+						<p>There is an ever increasing challenge with the amount of time spent looking through spam emails, often uncertain about whether they 
+							are spam or not. This becomes a significant time drain, especially for organisations with many employees. If these spam emails 
+							can be accurately detected and automatically directed to the spam folder, it would save users a considerable amount of time. 
+							However, it's crucial to consider that mistakenly classifying important emails as spam could have critical consequences, 
+							particularly for certain companies where timely communication is essential.
+						</p>
+
+						<p><strong>Business Objectives</strong></p>
+						<p>The objective of this project is to develop an automated email spam detection model. 
+							The model aims to accurately classify emails as either spam or non-spam, reducing the time employees spend manually 
+							filtering through their inboxes. By implementing this solution, the organisation can enhance productivity, improve email 
+							security, and ensure important communications are not mistakenly filtered out. Ultimately, the goal is to create a seamless, 
+							efficient email management system that minimises distractions and safeguards against potential threats.</p>
+
+						<p><strong>Situation Assessment</strong></p>
+						<p>Traditional methods of filtering spam emails often rely on manual inspection or rule-based systems, which can be inefficient and prone to inaccuracies. Using the Naive Bayes Classifier offers a scalable and automated solution for spam detection. The algorithm’s simplicity, efficiency, and effectiveness make it well-suited for classifying emails in real-time. The performance of the system is evaluated using metrics such as accuracy, precision, recall, and F1-score to measure its ability to distinguish between spam and non-spam emails accurately.</p>
+
+						<p><strong>Tools & Technologies</strong></p>
+						<ul>
+								<li><strong>Scikit-learn</strong>: Provides tools for building and training the model and evaluating its performance 
+								through metrics and cross-validation.</li>
+								<br></br>
+								<li><strong>Pandas and NumPy</strong>: Used for data manipulation, preprocessing, and feature extraction from email datasets.</li>
+								<br></br>
+								<li><strong>Google Colab</strong>: Offers a cloud-based environment with computational resources for training and testing 
+								the model, allowing for easy experimentation and optimization.</li>
+								<br></br>
+								<li><strong>Python</strong>: The programming language used to integrate all components, enabling efficient preprocessing, 
+								modeling, and evaluation.</li>
+								<br></br>
+						</ul>
+
+						<p><strong>Data Collection</strong></p>
+						<p>The dataset used for training the spam email detection model was sourced from the UCI Machine Learning Repository, 
+							a well-known resource for machine learning datasets. It contains thousands of labeled emails categorised as spam or non-spam. 
+							The dataset includes features such as word frequency, character frequency, and metadata, providing a robust foundation for 
+							training the model.</p>
+
+						<p>The dataset was pre-processed to ensure consistency and accuracy, including handling missing values, removing duplicates, 
+							and standardising text. It was then divided into training, validation, and testing sets, with a 70/20/10 split, 
+							to facilitate effective model evaluation and prevent overfitting.</p>
+
+						<p><strong>Data Quality Verification</strong></p>
+						<p>The dataset was verified through visualisation of annotations. The training process was monitored to ensure the model was 
+							learning effectively, and sample predictions were manually reviewed to confirm detection accuracy.</p>
+
+						<p><strong>Model Selection</strong></p>
+						<p>The Naive Bayes Classifier (NBC) was selected for its simplicity, efficiency, and effectiveness in text classification tasks. 
+							NBC uses a probabilistic approach based on Bayes theorem, making it particularly suitable for spam email detection. </p>
+
+						<p><strong>Data Cleaning</strong></p>
+						<p>Data cleaning involved handling missing or inconsistent values, removing duplicate emails, and correcting mislabeled entries. 
+							The correlation between the target variable and the independent variables was analysed. Since the dataset contains over 
+							50 columns, those with minimal to no correlation were removed. This step ensures that irrelevant columns do not interfere 
+							with achieving accurate results.</p>
+
+						<p><strong>Model Training</strong></p> <p>The annotated dataset was imported from Roboflow with the following code.</p>
+						<img src={importRoboflow} alt="RoboFlow Import"></img>
+						<p> Roboflow was used to annotate images and export the dataset in a format compatible with the YOLOv11 model.</p> 
+						<p>The training process was conducted using Google Colab, leveraging its GPU support to accelerate computations. 
+							To balance training quality and time constraints, the model was trained for 15 epochs. This duration was chosen due to the 
+							computational intensity required for processing the dataset. Training at 15 epochs took just over 2 hours.</p> 
+						<p>The training utilised the Ultralytics framework, which simplifies object detection model training. 
+							First, a pretrained model from Ultralytics was loaded as a starting point. This approach allowed the model to leverage 
+							features learned from a large generic dataset, speeding up convergence and improving accuracy. 
+							Subsequently, a new model was trained on the annotated dataset, ensuring it was fine-tuned to detect helmets and no helmets.
+							See image below for the code example.</p>
+						<img src={traingModel} alt="Training Model"></img>
+
+						<p><strong>Model Evaluation</strong></p>
+						<p>After training the model, its performance was evaluated using F1-score, recall, and precision metrics. See the figures below 
+							for detailed results.</p>
+						<img src={f1Score} alt="F1" class="responsive-img"></img>
+						<p>The F1-score achieved was 93%, indicating the model's high reliability in detecting helmets and no helmets. 
+							This means that 93% of predictions were correct.</p>
+						<img src={pScore} alt="Precision" class="responsive-img"></img>
+						<p>The precision-confidence curve for the helmet detection project shows that all classes achieve a precision of 1.00 at a 
+							confidence threshold of 0.907. This means that when the model predicts with at least 90.7% confidence, it makes no false 
+							positive detections, ensuring highly reliable predictions for safety equipment detection at higher confidence levels.</p>
+						<img src={rScore} alt="Recall" class="responsive-img"></img>
+						<p>The recall-confidence curve for the helmet detection project shows that all classes achieve a recall of 0.99 at a confidence 
+							threshold of 0.0. This indicates that the model successfully detects 99% of all actual instances across all classes, 
+							even when it predicts with very low confidence, highlighting its effectiveness in minimising missed detections.</p>
+
+						<p><strong>Results</strong></p>
+						<p>The model demonstrated high accuracy in detecting helmets and no helmets in diverse environments. Features such as lighting 
+							conditions and worker positions impacted detection performance, while robust preprocessing techniques mitigated these challenges. 
+							The results affirm the system’s capability to monitor safety effectively.</p>
+
+						<p><strong>Conclusion</strong></p>
+						<p>This project highlights the potential of Ultralytics, YOLO and OpenCV in real-time object detection for enhancing safety. 
+							The system successfully identified safety violations with high accuracy, providing a reliable tool for supervisors and 
+							safety officers. This innovation can significantly reduce workplace accidents, ensuring a safer environment for workers.</p>
+
+						<p><strong>Acknowledgements</strong></p>
+						<p><a href="https://ultralytics.com/" target="_blank">Ultralytics</a> - Documentation, Tutorials, Guides, Framework, Support</p>
+						<p><a href="https://app.roboflow.com/" target="_blank">Roboflow</a> - Dataset annotation and preparation</p>
+						<p><a href="https://opencv.org/" target="_blank">OpenCV</a> - Video stream processing</p>
+						<p>Lecturer Dr. Greg Doyle's notes</p>
+
+					</div>
+
+
+					<div id="machineLearning4" class="job">
 
 					<h3>Object Detection For Helmets Using Convolutional Neural Networks (CNNs)</h3>
 						<p><strong>Introduction</strong></p>
@@ -522,6 +630,9 @@ function App() {
 						<p>Lecturer Dr. Greg Doyle's notes</p>
 
 					</div>
+
+
+
         </section>
         <section id="projects">
           <h2>Projects</h2>
