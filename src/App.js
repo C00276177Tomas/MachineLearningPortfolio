@@ -23,6 +23,13 @@ import pScore from './images/P_curve.png';
 import rScore from './images/R_curve.png';
 import importRoboflow from './images/importFromRoboflow.png';
 import traingModel from './images/trainModel.png';
+import trainingNBCModel from './images/trainingNBCModel.png';
+import trainingNBCModel2 from './images/trainingNBCModel2.png';
+import accuracyAfterTuning from './images/accuracyAfterTuning.png';
+import accuracyBeforeTuning from './images/accuracyBeforeTuning.png';
+import matrixAfterTuning from './images/matrixAfterTuning.png';
+import matrixBeforeTuning from './images/matrixBeforeTuning.png';
+
 
 function App() {
 
@@ -480,48 +487,44 @@ function App() {
 							50 columns, those with minimal to no correlation were removed. This step ensures that irrelevant columns do not interfere 
 							with achieving accurate results.</p>
 
-						<p><strong>Model Training</strong></p> <p>The annotated dataset was imported from Roboflow with the following code.</p>
-						<img src={importRoboflow} alt="RoboFlow Import"></img>
-						<p> Roboflow was used to annotate images and export the dataset in a format compatible with the YOLOv11 model.</p> 
-						<p>The training process was conducted using Google Colab, leveraging its GPU support to accelerate computations. 
-							To balance training quality and time constraints, the model was trained for 15 epochs. This duration was chosen due to the 
-							computational intensity required for processing the dataset. Training at 15 epochs took just over 2 hours.</p> 
-						<p>The training utilised the Ultralytics framework, which simplifies object detection model training. 
-							First, a pretrained model from Ultralytics was loaded as a starting point. This approach allowed the model to leverage 
-							features learned from a large generic dataset, speeding up convergence and improving accuracy. 
-							Subsequently, a new model was trained on the annotated dataset, ensuring it was fine-tuned to detect helmets and no helmets.
-							See image below for the code example.</p>
-						<img src={traingModel} alt="Training Model"></img>
+						<p><strong>Model Training</strong></p> <p>The Naive Bayes Classifier (NBC) model was trained on a preprocessed dataset, where 
+							features were selected to remove correlations and handle missing values. The data was split into training, validation, and 
+							testing sets using a 60-20-20 split. For training, the Multinomial Naive Bayes algorithm with Laplace smoothing 
+							(alpha=1.0).</p> <p>The model was trained using Scikit-learn, where the key steps included fitting the model to the training 
+							data and evaluating it using accuracy, confusion matrix, and classification report metrics. The training focused 
+							on predicting whether an entry was spam or non-spam based on the features.</p> <p>Below is the code used to train 
+							the NBC model:</p> <img src={trainingNBCModel} alt="Training Naive Bayes Model"></img>
 
-						<p><strong>Model Evaluation</strong></p>
-						<p>After training the model, its performance was evaluated using F1-score, recall, and precision metrics. See the figures below 
-							for detailed results.</p>
-						<img src={f1Score} alt="F1" class="responsive-img"></img>
-						<p>The F1-score achieved was 93%, indicating the model's high reliability in detecting helmets and no helmets. 
-							This means that 93% of predictions were correct.</p>
-						<img src={pScore} alt="Precision" class="responsive-img"></img>
-						<p>The precision-confidence curve for the helmet detection project shows that all classes achieve a precision of 1.00 at a 
-							confidence threshold of 0.907. This means that when the model predicts with at least 90.7% confidence, it makes no false 
-							positive detections, ensuring highly reliable predictions for safety equipment detection at higher confidence levels.</p>
-						<img src={rScore} alt="Recall" class="responsive-img"></img>
-						<p>The recall-confidence curve for the helmet detection project shows that all classes achieve a recall of 0.99 at a confidence 
-							threshold of 0.0. This indicates that the model successfully detects 99% of all actual instances across all classes, 
-							even when it predicts with very low confidence, highlighting its effectiveness in minimising missed detections.</p>
+							<p>The model was trained using Scikit-learn, where the key steps included fitting the model to the training 
+							data and evaluating it using accuracy, confusion matrix, and classification report metrics. The training focused 
+							on predicting whether an entry was spam or non-spam based on the features.</p>
 
-						<p><strong>Results</strong></p>
-						<p>The model demonstrated high accuracy in detecting helmets and no helmets in diverse environments. Features such as lighting 
-							conditions and worker positions impacted detection performance, while robust preprocessing techniques mitigated these challenges. 
-							The results affirm the system’s capability to monitor safety effectively.</p>
+						<p><strong>Tuning</strong></p> <p>During the tuning phase, the dataset split was adjusted to 80% for training, and 10% each for 
+							validation and testing. Additionally, the alpha parameter for **Laplace smoothing** was modified from its default value of 1.0 
+							to 0.5. This change led to an improvement in test accuracy by around 1%, demonstrating the positive impact of tuning these 
+							hyperparameters on model performance.</p>
+						<img src={trainingNBCModel2} alt="Training Naive Bayes Model 2"></img>
 
-						<p><strong>Conclusion</strong></p>
-						<p>This project highlights the potential of Ultralytics, YOLO and OpenCV in real-time object detection for enhancing safety. 
-							The system successfully identified safety violations with high accuracy, providing a reliable tool for supervisors and 
-							safety officers. This innovation can significantly reduce workplace accidents, ensuring a safer environment for workers.</p>
+						<p><strong>Model Evaluation</strong></p> <p><strong>Before Tuning</strong></p> <p>Prior to tuning, the Naive Bayes Classifier was 
+							trained with the default dataset split and alpha value. The model was evaluated using accuracy and the confusion matrix, 
+							providing an initial performance benchmark.</p>
+						<img src={accuracyBeforeTuning} alt="Accuracy Before Tuning"></img>
+						<img src={matrixBeforeTuning} alt="Confusion Matrix Before Tuning"></img>
+
+						<p><strong>After Tuning</strong></p> <p>After adjusting the dataset split to 80% for training and 10% each for validation and 
+							testing, and fine-tuning the alpha parameter to 0.5, the model’s performance improved. The test accuracy increased by around 
+							1%, and the confusion matrix reflected these improvements.</p>
+						<img src={accuracyAfterTuning} alt="Accuracy After Tuning"></img>
+						<img src={matrixAfterTuning} alt="Confusion Matrix After Tuning"></img>
+
+						<p><strong>Results</strong></p> <p>The Naive Bayes Classifier demonstrated strong accuracy in classifying emails as spam or non-spam. 
+							Features such as word frequency and document length were key factors influencing the model's performance. The dataset was carefully 
+							preprocessed to remove correlations and handle missing values, ensuring the model was trained on high-quality data. The results 
+							highlight the model's effectiveness in spam detection and its ability to generalize well to unseen data.</p>
 
 						<p><strong>Acknowledgements</strong></p>
-						<p><a href="https://ultralytics.com/" target="_blank">Ultralytics</a> - Documentation, Tutorials, Guides, Framework, Support</p>
-						<p><a href="https://app.roboflow.com/" target="_blank">Roboflow</a> - Dataset annotation and preparation</p>
-						<p><a href="https://opencv.org/" target="_blank">OpenCV</a> - Video stream processing</p>
+						<p><a href="https://archive.ics.uci.edu/dataset/94/spambase" target="_blank">University of California Irvine Machine Learning Repository</a> - dataset collection</p>
+						<p><a href="https://github.com/jakevdp/PythonDataScienceHandbook/blob/8a34a4f653bdbdc01415a94dc20d4e9b97438965/notebooks/05.05-Naive-Bayes.ipynb" target="_blank">Jake Vanderplas - Python Data Science Handbook - 05.05-Naive-Bayes</a></p>
 						<p>Lecturer Dr. Greg Doyle's notes</p>
 
 					</div>
