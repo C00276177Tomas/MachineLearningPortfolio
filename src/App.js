@@ -189,7 +189,7 @@ function App() {
 					<div class="machineLearning-navigation">
 							<a href="#machineLearning1">Multidimensional Linear Regression</a>
 							<a href="#machineLearning2">Random Forest Classifier</a>
-							<a href="#machineLearning3">Naive Bayes Classifier</a>
+							<a href="#machineLearning3">Multinomial Naive Bayes Classifier</a>
 							<a href="#machineLearning4">Convolutional Neural Networks</a>
 					</div>
           <div id="machineLearning1" class="job">
@@ -421,7 +421,7 @@ function App() {
 
 					<div id="machineLearning3" class="job">
 
-					<h3>Spam email detection using Naive Bayes Classifier (NBC)</h3>
+					<h3>Spam email detection using Multinomial Naive Bayes Classifier (NBC)</h3>
 						<p><strong>Problem Definition</strong></p>
 						<p>There is an ever increasing challenge with the amount of time spent looking through spam emails, often uncertain about whether they 
 							are spam or not. This becomes a significant time drain, especially for organisations with many employees. If these spam emails 
@@ -438,7 +438,7 @@ function App() {
 							efficient email management system that minimises distractions and safeguards against potential threats.</p>
 
 						<p><strong>Situation Assessment</strong></p>
-						<p>Traditional methods of filtering spam emails often rely on manual inspection or rule-based systems, which can be inefficient and prone to inaccuracies. Using the Naive Bayes Classifier offers a scalable and automated solution for spam detection. The algorithm’s simplicity, efficiency, and effectiveness make it well-suited for classifying emails in real-time. The performance of the system is evaluated using metrics such as accuracy, precision, recall, and F1-score to measure its ability to distinguish between spam and non-spam emails accurately.</p>
+						<p>Traditional methods of filtering spam emails often rely on manual inspection or rule-based systems, which can be inefficient and prone to inaccuracies. Using the Multinomial Naive Bayes Classifier offers a scalable and automated solution for spam detection. The algorithm’s simplicity, efficiency, and effectiveness make it well-suited for classifying emails in real-time. The performance of the system is evaluated using metrics such as accuracy, precision, recall, and F1-score to measure its ability to distinguish between spam and non-spam emails accurately.</p>
 
 						<p><strong>Tools & Technologies</strong></p>
 						<ul>
@@ -466,15 +466,16 @@ function App() {
 							to facilitate effective model evaluation and prevent overfitting.</p>
 
 						<p><strong>Data Quality Verification</strong></p>
-						<p>The dataset was verified through visualisation of annotations. The training process was monitored to ensure the model was 
-							learning effectively, and sample predictions were manually reviewed to confirm detection accuracy.</p>
+						<p>The dataset was downloaded from a reputable source, UCI Machine Learning Repository. The dataset has a liscense unser a 
+							Creative Commons Attribution 4.0 Internation (CC BY 4.0), this is a good sign for a dataset giving it more credibility. </p>
 
 						<p><strong>Model Selection</strong></p>
 						<p>The Naive Bayes Classifier (NBC) was selected for its simplicity, efficiency, and effectiveness in text classification tasks. 
 							NBC uses a probabilistic approach based on Bayes theorem, making it particularly suitable for spam email detection. </p>
 
 						<p><strong>Data Cleaning</strong></p>
-						<p>Data cleaning involved handling missing or inconsistent values, removing duplicate emails, and correcting mislabeled entries. 
+						<p>Data cleaning involved handling missing or inconsistent values and manually scanning through the collumns to make sure of data 
+							integrity. 
 							The correlation between the target variable and the independent variables was analysed. Since the dataset contains over 
 							50 columns, those with minimal to no correlation were removed. This step ensures that irrelevant columns do not interfere 
 							with achieving accurate results.</p>
