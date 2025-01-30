@@ -445,7 +445,10 @@ function App() {
 							efficient email management system that minimises distractions and safeguards against potential threats.</p>
 
 						<p><strong>Situation Assessment</strong></p>
-						<p>Traditional methods of filtering spam emails often rely on manual inspection or rule-based systems, which can be inefficient and prone to inaccuracies. Using the Multinomial Naive Bayes Classifier offers a scalable and automated solution for spam detection. The algorithm’s simplicity, efficiency, and effectiveness make it well-suited for classifying emails in real-time. The performance of the system is evaluated using metrics such as accuracy, precision, recall, and F1-score to measure its ability to distinguish between spam and non-spam emails accurately.</p>
+						<p>Traditional methods of filtering spam emails often rely on manual inspection or rule-based systems, which can be inefficient and prone to inaccuracies. 
+							Using the Multinomial Naive Bayes Classifier offers a scalable and automated solution for spam detection. The algorithm’s simplicity, efficiency, and effectiveness make it 
+							well-suited for classifying emails in real-time. The performance of the system is evaluated using metrics such as accuracy, precision, recall, and F1-score to measure 
+							its ability to distinguish between spam and non-spam emails accurately.</p>
 
 						<p><strong>Tools & Technologies</strong></p>
 						<ul>
@@ -454,11 +457,10 @@ function App() {
 								<br></br>
 								<li><strong>Pandas and NumPy</strong>: Used for data manipulation, preprocessing, and feature extraction from email datasets.</li>
 								<br></br>
-								<li><strong>Google Colab</strong>: Offers a cloud-based environment with computational resources for training and testing 
-								the model, allowing for easy experimentation and optimization.</li>
+								<li><strong>Google Colab</strong>: Used to run the python notebooks, training the model, validation and testing accuracy results.</li>
 								<br></br>
 								<li><strong>Python</strong>: The programming language used to integrate all components, enabling efficient preprocessing, 
-								modeling, and evaluation.</li>
+								modelling, and evaluation.</li>
 								<br></br>
 						</ul>
 
@@ -470,10 +472,10 @@ function App() {
 
 						<p>The dataset was pre-processed to ensure consistency and accuracy, including handling missing values, removing duplicates, 
 							and standardising text. It was then divided into training, validation, and testing sets, with a 70/20/10 split, 
-							to facilitate effective model evaluation and prevent overfitting.</p>
+							to facilitate effective model evaluation and prevent over-fitting.</p>
 
 						<p><strong>Data Quality Verification</strong></p>
-						<p>The dataset was downloaded from a reputable source, UCI Machine Learning Repository. The dataset has a liscense unser a 
+						<p>The dataset was downloaded from a reputable source, UCI Machine Learning Repository. The dataset has a licence under a 
 							Creative Commons Attribution 4.0 Internation (CC BY 4.0), this is a good sign for a dataset giving it more credibility. </p>
 
 						<p><strong>Model Selection</strong></p>
@@ -481,7 +483,7 @@ function App() {
 							NBC uses a probabilistic approach based on Bayes theorem, making it particularly suitable for spam email detection. </p>
 
 						<p><strong>Data Cleaning</strong></p>
-						<p>Data cleaning involved handling missing or inconsistent values and manually scanning through the collumns to make sure of data 
+						<p>Data cleaning involved handling missing or inconsistent values and manually scanning through the columns to make sure of data 
 							integrity. 
 							The correlation between the target variable and the independent variables was analysed. Since the dataset contains over 
 							50 columns, those with minimal to no correlation were removed. This step ensures that irrelevant columns do not interfere 
@@ -495,14 +497,10 @@ function App() {
 							on predicting whether an entry was spam or non-spam based on the features.</p> <p>Below is the code used to train 
 							the NBC model:</p> <img src={trainingNBCModel} alt="Training Naive Bayes Model"></img>
 
-							<p>The model was trained using Scikit-learn, where the key steps included fitting the model to the training 
-							data and evaluating it using accuracy, confusion matrix, and classification report metrics. The training focused 
-							on predicting whether an entry was spam or non-spam based on the features.</p>
-
 						<p><strong>Tuning</strong></p> <p>During the tuning phase, the dataset split was adjusted to 80% for training, and 10% each for 
-							validation and testing. Additionally, the alpha parameter for **Laplace smoothing** was modified from its default value of 1.0 
+							validation and testing. Additionally, the alpha parameter for Laplace smoothing was modified from its default value of 1.0 
 							to 0.5. This change led to an improvement in test accuracy by around 1%, demonstrating the positive impact of tuning these 
-							hyperparameters on model performance.</p>
+							hyperparameter on model performance.</p>
 						<img src={trainingNBCModel2} alt="Training Naive Bayes Model 2"></img>
 
 						<p><strong>Model Evaluation</strong></p> <p><strong>Before Tuning</strong></p> <p>Prior to tuning, the Naive Bayes Classifier was 
@@ -520,7 +518,7 @@ function App() {
 						<p><strong>Results</strong></p> <p>The Naive Bayes Classifier demonstrated strong accuracy in classifying emails as spam or non-spam. 
 							Features such as word frequency and document length were key factors influencing the model's performance. The dataset was carefully 
 							preprocessed to remove correlations and handle missing values, ensuring the model was trained on high-quality data. The results 
-							highlight the model's effectiveness in spam detection and its ability to generalize well to unseen data.</p>
+							highlight the model's effectiveness in spam detection and its ability to generalise well to unseen data.</p>
 
 						<p><strong>Acknowledgements</strong></p>
 						<p><a href="https://archive.ics.uci.edu/dataset/94/spambase" target="_blank">University of California Irvine Machine Learning Repository</a> - dataset collection</p>
