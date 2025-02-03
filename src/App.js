@@ -197,7 +197,8 @@ function App() {
 							<a href="#machineLearning1">Multidimensional Linear Regression</a>
 							<a href="#machineLearning2">Random Forest Classifier</a>
 							<a href="#machineLearning3">Multinomial Naive Bayes Classifier</a>
-							<a href="#machineLearning4">Convolutional Neural Networks</a>
+							<a href="#machineLearning4">Support Vector Machines</a>
+							<a href="#machineLearning5">Convolutional Neural Networks</a>
 					</div>
           <div id="machineLearning1" class="job">
 						<h3>Predicting Student Final Grades Using Multidimensional Linear Regression</h3>
@@ -529,6 +530,112 @@ function App() {
 
 
 					<div id="machineLearning4" class="job">
+
+					<h3>Support Vector Machines (SVM)</h3>
+						<p><strong>Introduction</strong></p>
+						<p>This project focuses on using object detection algorithm (CNNs) to detect helmets. The YOLO (You Only Look Once) model, 
+							implemented with the Ultralytics library, is used in conjunction with OpenCV for real-time video processing. 
+							The dataset was sourced from public repositories and  was preannotated on Roboflow. The annotations were revised to optimise 
+							the model.</p>
+
+						<p><strong>Business Objectives</strong></p>
+						<p>The primary goal of this project is to improve safety by detecting helmets and no helmets. Using YOLO and OpenCV, the model detects whether 
+							people are wearing helmets in real-time video feeds. This can prevent accidents, ensure compliance with safety regulations, 
+							and minimise workplace hazards.</p>
+
+						<p>The system’s results can be used by construction managers, safety officers, insurance companies and many others to enhance 
+							safety protocols, reduce liability, and improve worker protection.</p>
+
+						<p><strong>Situation Assessment</strong></p>
+						<p>Traditional methods of monitoring safety often rely on manual observation, which can be time-consuming and 
+							prone to human error. Using YOLO for object detection offers a scalable and automated solution. YOLO’s fast inference and accuracy 
+							are critical for real-time applications, and OpenCV ensures efficient video processing. The performance of the system is 
+							evaluated using metrics such as precision, recall, and F1-score to measure its effectiveness in detecting helmet violations.</p>
+
+						<p><strong>Tools & Technologies</strong></p>
+						<ul>
+								<li><strong>Ultralytics YOLO</strong>: Used for implementing  the object detection model. The Ultralytics library simplifies 
+								the integration of YOLO models.</li>
+								<br></br>
+								<li><strong>OpenCV</strong>: Facilitates real-time video stream processing and visualisation. OpenCV is critical for 
+								preprocessing video input and displaying detection results.</li>
+								<br></br>
+								<li><strong>Google Colab</strong>: Provides an environment with GPU support for training the YOLO model. 
+								Colab’s cloud infrastructure enables quick experimentation and model optimisation without requiring local resources.</li>
+								<br></br>
+								<li><strong>Python</strong>: The programming language used to build the system, combining YOLO and OpenCV.</li>
+								<br></br>
+						</ul>
+
+						<p><strong>Data Collection</strong></p>
+						<p>The dataset used for training the model was sourced from Roboflows publicly available repositories. It contains just over
+							7000 of annotated images with class's for helmets and noHelmets. The dataset was augmented to improve the model by implemeting the following 
+							augmentations: Rotations, Crops, Grayscale and Blur.</p>
+						
+						<p>The images were already annotated but they were checked over and adjusted to ensure accurate labeling. The dataset was divided 
+							into training, validation, and testing sets, with a 70/20/10 split for effective model evaluation.</p>
+
+						<p><strong>Data Cleaning</strong></p>
+						<p>Data cleaning involved ensuring consistent annotations and removing duplicates or mislabeled images. Images with poor visibility 
+							or low resolution were excluded to maintain data quality. </p>
+
+						<p><strong>Data Quality Verification</strong></p>
+						<p>The dataset was verified through visualisation of annotations. The training process was monitored to ensure the model was 
+							learning effectively, and sample predictions were manually reviewed to confirm detection accuracy.</p>
+
+						<p><strong>Model Selection</strong></p>
+						<p>The YOLOv11 model from the Ultralytics library was selected for its high speed and accuracy in object detection tasks, 
+							it is the latest model of YOLO. YOLO's one-stage detection framework allows real-time processing, which is critical for 
+							live video analysis.</p>
+
+						<p><strong>Model Training</strong></p> <p>The annotated dataset was imported from Roboflow with the following code.</p>
+						<img src={importRoboflow} alt="RoboFlow Import"></img>
+						<p> Roboflow was used to annotate images and export the dataset in a format compatible with the YOLOv11 model.</p> 
+						<p>The training process was conducted using Google Colab, leveraging its GPU support to accelerate computations. 
+							To balance training quality and time constraints, the model was trained for 15 epochs. This duration was chosen due to the 
+							computational intensity required for processing the dataset. Training at 15 epochs took just over 2 hours.</p> 
+						<p>The training utilised the Ultralytics framework, which simplifies object detection model training. 
+							First, a pretrained model from Ultralytics was loaded as a starting point. This approach allowed the model to leverage 
+							features learned from a large generic dataset, speeding up convergence and improving accuracy. 
+							Subsequently, a new model was trained on the annotated dataset, ensuring it was fine-tuned to detect helmets and no helmets.
+							See image below for the code example.</p>
+						<img src={traingModel} alt="Training Model"></img>
+
+						<p><strong>Model Evaluation</strong></p>
+						<p>After training the model, its performance was evaluated using F1-score, recall, and precision metrics. See the figures below 
+							for detailed results.</p>
+						<img src={f1Score} alt="F1" class="responsive-img"></img>
+						<p>The F1-score achieved was 93%, indicating the model's high reliability in detecting helmets and no helmets. 
+							This means that 93% of predictions were correct.</p>
+						<img src={pScore} alt="Precision" class="responsive-img"></img>
+						<p>The precision-confidence curve for the helmet detection project shows that all classes achieve a precision of 1.00 at a 
+							confidence threshold of 0.907. This means that when the model predicts with at least 90.7% confidence, it makes no false 
+							positive detections, ensuring highly reliable predictions for safety equipment detection at higher confidence levels.</p>
+						<img src={rScore} alt="Recall" class="responsive-img"></img>
+						<p>The recall-confidence curve for the helmet detection project shows that all classes achieve a recall of 0.99 at a confidence 
+							threshold of 0.0. This indicates that the model successfully detects 99% of all actual instances across all classes, 
+							even when it predicts with very low confidence, highlighting its effectiveness in minimising missed detections.</p>
+
+						<p><strong>Results</strong></p>
+						<p>The model demonstrated high accuracy in detecting helmets and no helmets in diverse environments. Features such as lighting 
+							conditions and worker positions impacted detection performance, while robust preprocessing techniques mitigated these challenges. 
+							The results affirm the system’s capability to monitor safety effectively.</p>
+
+						<p><strong>Conclusion</strong></p>
+						<p>This project highlights the potential of Ultralytics, YOLO and OpenCV in real-time object detection for enhancing safety. 
+							The system successfully identified safety violations with high accuracy, providing a reliable tool for supervisors and 
+							safety officers. This innovation can significantly reduce workplace accidents, ensuring a safer environment for workers.</p>
+
+						<p><strong>Acknowledgements</strong></p>
+						<p><a href="https://ultralytics.com/" target="_blank">Ultralytics</a> - Documentation, Tutorials, Guides, Framework, Support</p>
+						<p><a href="https://app.roboflow.com/" target="_blank">Roboflow</a> - Dataset annotation and preparation</p>
+						<p><a href="https://opencv.org/" target="_blank">OpenCV</a> - Video stream processing</p>
+						<p>Lecturer Dr. Greg Doyle's notes</p>
+
+					</div>
+
+
+					<div id="machineLearning5" class="job">
 
 					<h3>Object Detection For Helmets Using Convolutional Neural Networks (CNNs)</h3>
 						<p><strong>Introduction</strong></p>
