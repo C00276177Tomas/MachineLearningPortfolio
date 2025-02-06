@@ -29,6 +29,7 @@ import accuracyAfterTuning from './images/accuracyAfterTuning.png';
 import accuracyBeforeTuning from './images/accuracyBeforeTuning.png';
 import matrixAfterTuning from './images/matrixAfterTuning.png';
 import matrixBeforeTuning from './images/matrixBeforeTuning.png';
+import pythonButton from './images/pythonButton.png';
 
 
 function App() {
@@ -194,11 +195,15 @@ function App() {
 				<section id="machineLearning">
           <h2>Machine Learning</h2>
 					<div class="machineLearning-navigation">
-							<a href="#machineLearning1">Multidimensional Linear Regression</a>
-							<a href="#machineLearning2">Random Forest Classifier</a>
-							<a href="#machineLearning3">Multinomial Naive Bayes Classifier</a>
-							<a href="#machineLearning4">Support Vector Machines</a>
-							<a href="#machineLearning5">Convolutional Neural Networks</a>
+						<a href="#machineLearning1">
+							Multidimensional Linear Regression 
+							<img src={pythonButton} width={100} height={25} alt="python button" style={{ float: "right" }} />
+						</a>
+
+							<a href="#machineLearning2">Random Forest Classifier  <img src={pythonButton} width={100} height={25} alt="python button" style={{ float: "right" }} ></img></a>
+							<a href="#machineLearning3">Multinomial Naive Bayes Classifier  <img src={pythonButton} width={100} height={25} alt="python button" style={{ float: "right" }} ></img></a>
+							<a href="#machineLearning4">Support Vector Machines  <img src={pythonButton} width={100} height={25} alt="python button" style={{ float: "right" }} ></img></a>
+							<a href="#machineLearning5">Convolutional Neural Networks  <img src={pythonButton} width={100} height={25} alt="python button" style={{ float: "right" }} ></img></a>
 					</div>
           <div id="machineLearning1" class="job">
 						<h3>Predicting Student Final Grades Using Multidimensional Linear Regression</h3>
