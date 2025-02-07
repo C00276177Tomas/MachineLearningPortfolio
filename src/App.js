@@ -30,6 +30,9 @@ import accuracyBeforeTuning from './images/accuracyBeforeTuning.png';
 import matrixAfterTuning from './images/matrixAfterTuning.png';
 import matrixBeforeTuning from './images/matrixBeforeTuning.png';
 import pythonButton from './images/pythonButton.png';
+import rButton from './images/rButton.png';
+import SVMTraining from './images/SVMTraining.png'
+import SVMCM from './images/SVMCM.png'
 
 
 function App() {
@@ -197,13 +200,24 @@ function App() {
 					<div class="machineLearning-navigation">
 						<a href="#machineLearning1">
 							Multidimensional Linear Regression 
-							<img src={pythonButton} width={100} height={25} alt="python button" style={{ float: "right" }} />
+							<img src={pythonButton} width={100} height={25} alt="python button" style={{ float: "right", marginLeft: "12px" }} />
 						</a>
-
-							<a href="#machineLearning2">Random Forest Classifier  <img src={pythonButton} width={100} height={25} alt="python button" style={{ float: "right" }} ></img></a>
-							<a href="#machineLearning3">Multinomial Naive Bayes Classifier  <img src={pythonButton} width={100} height={25} alt="python button" style={{ float: "right" }} ></img></a>
-							<a href="#machineLearning4">Support Vector Machines  <img src={pythonButton} width={100} height={25} alt="python button" style={{ float: "right" }} ></img></a>
-							<a href="#machineLearning5">Convolutional Neural Networks  <img src={pythonButton} width={100} height={25} alt="python button" style={{ float: "right" }} ></img></a>
+						<a href="#machineLearning2">
+							Random Forest Classifier  
+							<img src={pythonButton} width={100} height={25} alt="python button" style={{ float: "right", marginLeft: "12px" }} ></img>
+						</a>
+						<a href="#machineLearning3">
+							Multinomial Naive Bayes Classifier
+							<img src={pythonButton} width={100} height={25} alt="python button" style={{ float: "right", marginLeft: "12px" }} ></img>
+						</a>
+						<a href="#machineLearning4">
+							Support Vector Machines
+							<img src={rButton} width={50} height={25} alt="r button" style={{ float: "right", marginLeft: "12px" }} ></img>
+							</a>
+						<a href="#machineLearning5">
+							Convolutional Neural Networks  
+							<img src={pythonButton} width={100} height={25} alt="python button" style={{ float: "right", marginLeft: "12px" }} ></img>
+						</a>
 					</div>
           <div id="machineLearning1" class="job">
 						<h3>Predicting Student Final Grades Using Multidimensional Linear Regression</h3>
@@ -536,105 +550,117 @@ function App() {
 
 					<div id="machineLearning4" class="job">
 
-					<h3>Support Vector Machines (SVM)</h3>
+					<h3>Predicting if a flight will be delayed by more than 15 minutes using Support Vector Machines (SVM)</h3>
 						<p><strong>Introduction</strong></p>
-						<p>This project focuses on using object detection algorithm (CNNs) to detect helmets. The YOLO (You Only Look Once) model, 
-							implemented with the Ultralytics library, is used in conjunction with OpenCV for real-time video processing. 
-							The dataset was sourced from public repositories and  was preannotated on Roboflow. The annotations were revised to optimise 
-							the model.</p>
+						<p>This project focuses on using Support Vector Machines (SVM) to predict flight delays. The model is trained on the flights 
+							dataset from the nycflights13 RITA, Bureau of transportation statistics, with features such as departure time, arrival time, 
+							distance, and delays. Data preprocessing involved handling missing values, feature selection, and defining delay thresholds. 
+							The model was evaluated using accuracy metrics to assess its performance in predicting whether a flight will be delayed.</p>
 
 						<p><strong>Business Objectives</strong></p>
-						<p>The primary goal of this project is to improve safety by detecting helmets and no helmets. Using YOLO and OpenCV, the model detects whether 
-							people are wearing helmets in real-time video feeds. This can prevent accidents, ensure compliance with safety regulations, 
-							and minimise workplace hazards.</p>
-
-						<p>The system’s results can be used by construction managers, safety officers, insurance companies and many others to enhance 
-							safety protocols, reduce liability, and improve worker protection.</p>
+						<p>The primary goal of this project is to improve flight scheduling efficiency by predicting delays. Using Support Vector Machines
+							(SVM), the model analyses flight data to determine the likelihood of a delay. This can help airlines optimise scheduling, improve 
+							customer experience, and reduce operational costs.</p>
 
 						<p><strong>Situation Assessment</strong></p>
-						<p>Traditional methods of monitoring safety often rely on manual observation, which can be time-consuming and 
-							prone to human error. Using YOLO for object detection offers a scalable and automated solution. YOLO’s fast inference and accuracy 
-							are critical for real-time applications, and OpenCV ensures efficient video processing. The performance of the system is 
-							evaluated using metrics such as precision, recall, and F1-score to measure its effectiveness in detecting helmet violations.</p>
+						<p>Traditional methods of predicting flight delays often rely on historical data analysis and manual intervention, which can be 
+							inefficient and inaccurate. Using Support Vector Machines (SVM) offers an automated and data-driven solution. 
+							SVM’s ability to handle complex, high-dimensional data is crucial for predicting delays. The performance of the model is 
+							evaluated using metrics such as accuracy, precision, and recall to assess its effectiveness in forecasting flight delays 
+							and improving operational efficiency.</p>
 
 						<p><strong>Tools & Technologies</strong></p>
 						<ul>
-								<li><strong>Ultralytics YOLO</strong>: Used for implementing  the object detection model. The Ultralytics library simplifies 
-								the integration of YOLO models.</li>
+								<li><strong>R</strong>: The programming language used to build and implement the flight delay prediction model. 
+								R’s statistical capabilities are leveraged to preprocess and analyse flight data.</li>
 								<br></br>
-								<li><strong>OpenCV</strong>: Facilitates real-time video stream processing and visualisation. OpenCV is critical for 
-								preprocessing video input and displaying detection results.</li>
+								<li><strong>e1071</strong>: Provides the Support Vector Machines (SVM) implementation for training and predicting flight delays. 
+								This library is critical for building and evaluating the SVM model.</li>
 								<br></br>
-								<li><strong>Google Colab</strong>: Provides an environment with GPU support for training the YOLO model. 
-								Colab’s cloud infrastructure enables quick experimentation and model optimisation without requiring local resources.</li>
+								<li><strong>dplyr</strong>: Used for data manipulation and preprocessing, allowing for efficient cleaning, filtering, and feature 
+								selection of the flight dataset.</li>
 								<br></br>
-								<li><strong>Python</strong>: The programming language used to build the system, combining YOLO and OpenCV.</li>
+								<li><strong>ggplot2</strong>: Used for visualising the flight dataset, allowing for effective exploration of relationships 
+								between variables, such as delays, departure times, and other flight-related features, to better understand the data and 
+								assist in model evaluation.</li>
 								<br></br>
 						</ul>
 
 						<p><strong>Data Collection</strong></p>
-						<p>The dataset used for training the model was sourced from Roboflows publicly available repositories. It contains just over
-							7000 of annotated images with class's for helmets and noHelmets. The dataset was augmented to improve the model by implemeting the following 
-							augmentations: Rotations, Crops, Grayscale and Blur.</p>
-						
-						<p>The images were already annotated but they were checked over and adjusted to ensure accurate labeling. The dataset was divided 
-							into training, validation, and testing sets, with a 70/20/10 split for effective model evaluation.</p>
+						<p>The dataset used for training the flight delay prediction model was sourced from the RITA 
+							(Research and Innovative Technology Administration) and the Bureau of Transportation Statistics. The dataset is available 
+							at the following link: 
+							<a href="https://www.transtats.bts.gov/DL_SelectFields.asp?Table_ID=236" target="_blank">
+							https://www.transtats.bts.gov/DL_SelectFields.asp?Table_ID=236</a>. It contains thousands of flight records, 
+							including information on departure and arrival times, distances, delays, and other relevant features.</p>
 
-						<p><strong>Data Cleaning</strong></p>
-						<p>Data cleaning involved ensuring consistent annotations and removing duplicates or mislabeled images. Images with poor visibility 
-							or low resolution were excluded to maintain data quality. </p>
+						<p>The dataset was pre-processed to ensure consistency and accuracy, including handling missing values, removing duplicates, 
+							and standardising numerical values. It was then divided into training and testing sets, with a 70/30 split, to facilitate 
+							effective model evaluation and prevent overfitting.</p>
+
+						<p><strong>Data Understanding</strong></p>
+						<p>The dataset used in this project consists of several columns that provide detailed information about each flight. 
+							The columns include the date of departure, represented by the year, month, and day. The actual departure and arrival times 
+							are given as dep_time and arr_time in HHMM or HMM format, adjusted to the local time zone, while the scheduled departure 
+							and arrival times are represented by sched_dep_time and sched_arr_time in the same format. The dataset also includes 
+							dep_delay and arr_delay, which measure departure and arrival delays in minutes, with negative values indicating early 
+							departures or arrivals.</p>
+
+						<p>The carrier column contains a two-letter abbreviation for the airline carrier, which can be cross-referenced with an 
+							additional dataset to obtain the carrier’s full name. The flight number is represented by the flight column, 
+							and the tail number of the plane is stored in the tailnum column, which can be cross-referenced with a planes dataset 
+							for more metadata. The origin and destination airports are given by the origin and dest columns, respectively, 
+							and additional metadata for these airports can be found in a separate dataset.</p>
+
+						<p>Other columns include air_time, which indicates the total time spent in the air, and distance, which measures 
+							the distance between the origin and destination airports in miles. The scheduled departure time is broken into hour 
+							and minute components in the hour and minute columns. Finally, the time_hour column provides the scheduled date and 
+							hour of the flight as a POSIXct date, which can be used along with the origin to join the flight data with weather data for 
+							further analysis.</p>
 
 						<p><strong>Data Quality Verification</strong></p>
-						<p>The dataset was verified through visualisation of annotations. The training process was monitored to ensure the model was 
-							learning effectively, and sample predictions were manually reviewed to confirm detection accuracy.</p>
+						<p>The dataset used in this project was sourced from the Bureau of Transportation Statistics (BTS), 
+							specifically from the RITA (Research and Innovative Technology Administration) database. The dataset is publicly 
+							available and provides comprehensive, accurate, and up-to-date flight information. Given that it comes from a trusted 
+							government source, it is considered reliable and credible for use in analysing flight delays and building predictive models.</p>
 
 						<p><strong>Model Selection</strong></p>
-						<p>The YOLOv11 model from the Ultralytics library was selected for its high speed and accuracy in object detection tasks, 
-							it is the latest model of YOLO. YOLO's one-stage detection framework allows real-time processing, which is critical for 
-							live video analysis.</p>
+						<p>The Support Vector Machine (SVM) was selected for its ability to handle high-dimensional data and its effectiveness in 
+							classification tasks. SVM works by finding a hyperplane that best separates the classes in the feature space, 
+							making it well-suited for predicting flight delays based on various factors such as departure times, carrier information, 
+							and weather conditions. Its robustness in handling complex datasets and its ability to generalise well to unseen data make 
+							it an ideal choice for this project.</p>
 
-						<p><strong>Model Training</strong></p> <p>The annotated dataset was imported from Roboflow with the following code.</p>
-						<img src={importRoboflow} alt="RoboFlow Import"></img>
-						<p> Roboflow was used to annotate images and export the dataset in a format compatible with the YOLOv11 model.</p> 
-						<p>The training process was conducted using Google Colab, leveraging its GPU support to accelerate computations. 
-							To balance training quality and time constraints, the model was trained for 15 epochs. This duration was chosen due to the 
-							computational intensity required for processing the dataset. Training at 15 epochs took just over 2 hours.</p> 
-						<p>The training utilised the Ultralytics framework, which simplifies object detection model training. 
-							First, a pretrained model from Ultralytics was loaded as a starting point. This approach allowed the model to leverage 
-							features learned from a large generic dataset, speeding up convergence and improving accuracy. 
-							Subsequently, a new model was trained on the annotated dataset, ensuring it was fine-tuned to detect helmets and no helmets.
-							See image below for the code example.</p>
-						<img src={traingModel} alt="Training Model"></img>
+						<p><strong>Data Cleaning</strong></p>
+						<p>Data cleaning involved handling missing values and ensuring consistency across the dataset. Irrelevant columns with minimal 
+							correlation to the target variable were removed to improve model accuracy. This step helped streamline the data and ensure it 
+							was ready for analysis and model training.</p>
 
-						<p><strong>Model Evaluation</strong></p>
-						<p>After training the model, its performance was evaluated using F1-score, recall, and precision metrics. See the figures below 
-							for detailed results.</p>
-						<img src={f1Score} alt="F1" class="responsive-img"></img>
-						<p>The F1-score achieved was 93%, indicating the model's high reliability in detecting helmets and no helmets. 
-							This means that 93% of predictions were correct.</p>
-						<img src={pScore} alt="Precision" class="responsive-img"></img>
-						<p>The precision-confidence curve for the helmet detection project shows that all classes achieve a precision of 1.00 at a 
-							confidence threshold of 0.907. This means that when the model predicts with at least 90.7% confidence, it makes no false 
-							positive detections, ensuring highly reliable predictions for safety equipment detection at higher confidence levels.</p>
-						<img src={rScore} alt="Recall" class="responsive-img"></img>
-						<p>The recall-confidence curve for the helmet detection project shows that all classes achieve a recall of 0.99 at a confidence 
-							threshold of 0.0. This indicates that the model successfully detects 99% of all actual instances across all classes, 
-							even when it predicts with very low confidence, highlighting its effectiveness in minimising missed detections.</p>
+						<p><strong>Model Training</strong></p>
+						<p>The Support Vector Machine (SVM) model was trained on a preprocessed dataset. The data was split into training and testing sets 
+							using a 70-30 split. The model was trained using the `e1071` library in R, where the key steps included fitting the SVM model 
+							to the training data and evaluating it using accuracy, confusion matrix, and classification report metrics. The training 
+							focused on predicting whether a flight would be delayed or not based on various factors like departure times, 
+							carrier information, and other features.</p>
+
+						<p>Below is the code used to train the SVM model:</p> <img src={SVMTraining} alt="Training SVM"></img>
+
+						<p><strong>Model Evaluation</strong></p> 
+						<p>When the confusion matrix was examined, it showed great alignment between the actual and predicted values, indicating that 
+							the model was highly accurate. The model's ability to predict flight delays was assessed, and the results were visualised 
+							through a confusion matrix heatmap to better understand its predictive performance.</p>
 
 						<p><strong>Results</strong></p>
-						<p>The model demonstrated high accuracy in detecting helmets and no helmets in diverse environments. Features such as lighting 
-							conditions and worker positions impacted detection performance, while robust preprocessing techniques mitigated these challenges. 
-							The results affirm the system’s capability to monitor safety effectively.</p>
-
-						<p><strong>Conclusion</strong></p>
-						<p>This project highlights the potential of Ultralytics, YOLO and OpenCV in real-time object detection for enhancing safety. 
-							The system successfully identified safety violations with high accuracy, providing a reliable tool for supervisors and 
-							safety officers. This innovation can significantly reduce workplace accidents, ensuring a safer environment for workers.</p>
+						<p>The Support Vector Machine (SVM) model demonstrated strong accuracy in predicting flight delays. Features such as 
+							departure and arrival times, distance, and historical flight data played a significant role in the model's performance. 
+							The dataset was carefully preprocessed to handle missing values and ensure consistency, allowing the model to be trained
+							on high-quality data. The results highlight the model's effectiveness in predicting flight delays and its ability to 
+							generalise well to unseen data.</p>
 
 						<p><strong>Acknowledgements</strong></p>
-						<p><a href="https://ultralytics.com/" target="_blank">Ultralytics</a> - Documentation, Tutorials, Guides, Framework, Support</p>
-						<p><a href="https://app.roboflow.com/" target="_blank">Roboflow</a> - Dataset annotation and preparation</p>
-						<p><a href="https://opencv.org/" target="_blank">OpenCV</a> - Video stream processing</p>
+						<p><a href="https://www.transtats.bts.gov/DL_SelectFields.asp?Table_ID=236" target="_blank">Bureau of Transportation Statistics (BTS)</a> - dataset collection</p>
+						<p><a href="https://github.com/jakevdp/PythonDataScienceHandbook/blob/8a34a4f653bdbdc01415a94dc20d4e9b97438965/notebooks/05.07-Support-Vector-Machines.ipynb" target="_blank">Jake Vanderplas - Python Data Science Handbook - 05.07-Support-Vector-Machines</a></p>
+						<p>Lecturer Dr. Agnes Maciocha notes</p>
 						<p>Lecturer Dr. Greg Doyle's notes</p>
 
 					</div>
