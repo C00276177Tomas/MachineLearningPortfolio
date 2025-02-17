@@ -31,8 +31,10 @@ import matrixAfterTuning from './images/matrixAfterTuning.png';
 import matrixBeforeTuning from './images/matrixBeforeTuning.png';
 import pythonButton from './images/pythonButton.png';
 import rButton from './images/rButton.png';
-import SVMTraining from './images/SVMTraining.png'
-import SVMCM from './images/SVMCM.png'
+import SVMTraining from './images/SVMTraining.png';
+import SVMCM from './images/SVMCM.png';
+import SVMcorrelations from './images/SVMcorrelations.png';
+import SVMdeparr from './images/SVMdeparr.png';
 
 
 function App() {
@@ -618,6 +620,12 @@ function App() {
 							hour of the flight as a POSIXct date, which can be used along with the origin to join the flight data with weather data for 
 							further analysis.</p>
 
+						<p><strong>Data visualisation</strong></p>
+						<p>Previously the columns that had the biggest correlation were selected to make the prediction. A decision was made to make further 
+							data visualisation between the 
+						</p>
+						<img src={SVMdeparr} alt="Dep Arr correlation"></img>
+
 						<p><strong>Data Quality Verification</strong></p>
 						<p>The dataset used in this project was sourced from the Bureau of Transportation Statistics (BTS), 
 							specifically from the RITA (Research and Innovative Technology Administration) database. The dataset is publicly 
@@ -635,6 +643,12 @@ function App() {
 						<p>Data cleaning involved handling missing values and ensuring consistency across the dataset. Irrelevant columns with minimal 
 							correlation to the target variable were removed to improve model accuracy. This step helped streamline the data and ensure it 
 							was ready for analysis and model training.</p>
+						<p>The selected columns were chosen because they directly impact flight delays, with factors like departure time, 
+							flight duration, and distance being key indicators of delay patterns. This was calculated by getting the correlations 
+							between the target variable and the rest of the numeric columns. Initially the column arr_time was included in the prediction 
+							which gave the model a high accuracy but after reviewing the correlations it made sense that this column should be removed 
+							because it was highly unlikely to have this value when attempting to make a prediction for a delay if the flight hasn't happened.</p>
+						<img src={SVMcorrelations} alt="correlations"></img>
 
 						<p><strong>Model Training</strong></p>
 						<p>The Support Vector Machine (SVM) model was trained on a preprocessed dataset. The data was split into training and testing sets 
@@ -649,6 +663,7 @@ function App() {
 						<p>When the confusion matrix was examined, it showed great alignment between the actual and predicted values, indicating that 
 							the model was highly accurate. The model's ability to predict flight delays was assessed, and the results were visualised 
 							through a confusion matrix heatmap to better understand its predictive performance.</p>
+						<img src={SVMCM} alt="confusion matrix"></img>
 
 						<p><strong>Results</strong></p>
 						<p>The Support Vector Machine (SVM) model demonstrated strong accuracy in predicting flight delays. Features such as 
