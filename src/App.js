@@ -35,6 +35,12 @@ import SVMTraining from './images/SVMTraining.png';
 import SVMCM from './images/SVMCM.png';
 import SVMcorrelations from './images/SVMcorrelations.png';
 import SVMdeparr from './images/SVMdeparr.png';
+import KNNdistribution from './images/KNNdistribution.png';
+import KNNacidityBYquality from './images/KNNacidityBYquality.png';
+import KNNalcaholBYquality from './images/KNNalcaholBYquality.png';
+import KNNcorrelation from './images/KNNcorrelation.png';
+import KNNnormalise from './images/KNNnormalise.png';
+import KNNaccuracy from './images/KNNaccuracy.png';
 
 
 function App() {
@@ -217,7 +223,7 @@ function App() {
 							<img src={rButton} width={50} height={25} alt="r button" style={{ float: "right", marginLeft: "12px" }} ></img>
 						</a>
 						<a href="#machineLearning5">
-							K Nearest Neighbour (K-NN)
+							K Nearest Neighbour
 							<img src={rButton} width={50} height={25} alt="r button" style={{ float: "right", marginLeft: "12px" }} ></img>
 						</a>
 						<a href="#machineLearning6">
@@ -694,105 +700,139 @@ function App() {
 
 					<div id="machineLearning5" class="job">
 
-					<h3>K Nearest Neighbour (K-NN)</h3>
+					<h3>Predicting Wine Quality Using k-Nearest Neighbors (k-NN)</h3>
 						<p><strong>Introduction</strong></p>
-						<p>This project focuses on using object detection algorithm (CNNs) to detect helmets. The YOLO (You Only Look Once) model, 
-							implemented with the Ultralytics library, is used in conjunction with OpenCV for real-time video processing. 
-							The dataset was sourced from public repositories and  was preannotated on Roboflow. The annotations were revised to optimise 
-							the model.</p>
+						<p>This project focuses on using k-Nearest Neighbors (k-NN) to predict wine quality. The model is trained on a wine quality 
+							dataset containing physicochemical properties such as acidity, alcohol content, and pH level. Data preprocessing involved 
+							handling missing values, feature scaling, and selecting relevant attributes. The model was evaluated using accuracy metrics 
+							to assess its performance in classifying wine quality.</p>
 
 						<p><strong>Business Objectives</strong></p>
-						<p>The primary goal of this project is to improve safety by detecting helmets and no helmets. Using YOLO and OpenCV, the model detects whether 
-							people are wearing helmets in real-time video feeds. This can prevent accidents, ensure compliance with safety regulations, 
-							and minimise workplace hazards.</p>
-
-						<p>The system’s results can be used by construction managers, safety officers, insurance companies and many others to enhance 
-							safety protocols, reduce liability, and improve worker protection.</p>
+						<p>The primary goal of this project is to predict whether a wine will be of high quality for consumers. Using k-Nearest Neighbors
+							 (k-NN), the model analyses various physicochemical properties of wine, such as acidity, alcohol content, and pH level, 
+							 to determine its quality. This can help wine producers maintain consistency, improve quality control, and enhance 
+							 customer satisfaction.</p>
 
 						<p><strong>Situation Assessment</strong></p>
-						<p>Traditional methods of monitoring safety often rely on manual observation, which can be time-consuming and 
-							prone to human error. Using YOLO for object detection offers a scalable and automated solution. YOLO’s fast inference and accuracy 
-							are critical for real-time applications, and OpenCV ensures efficient video processing. The performance of the system is 
-							evaluated using metrics such as precision, recall, and F1-score to measure its effectiveness in detecting helmet violations.</p>
+						<p>Traditional methods of assessing wine quality often rely on professional tasters, whose evaluations can be subjective 
+							and inconsistent. Factors such as personal preference, tasting conditions, and human error can lead to variability in 
+							quality ratings. Using machine learning, specifically k-Nearest Neighbors (k-NN), provides a more objective, data-driven 
+							approach to predicting wine quality. The model's performance is evaluated using  the accuracy score to assess its 
+							effectiveness in classifying high-quality wines 
+							and supporting better decision-making in wine production.</p>
+
 
 						<p><strong>Tools & Technologies</strong></p>
 						<ul>
-								<li><strong>Ultralytics YOLO</strong>: Used for implementing  the object detection model. The Ultralytics library simplifies 
-								the integration of YOLO models.</li>
+								<li><strong>R</strong>: The programming language used to build and implement the wine quality prediction model. 
+								R’s statistical capabilities are leveraged for data preprocessing, visualisation, and model training.</li>
 								<br></br>
-								<li><strong>OpenCV</strong>: Facilitates real-time video stream processing and visualisation. OpenCV is critical for 
-								preprocessing video input and displaying detection results.</li>
+								<li><strong>class</strong>: Provides the k-Nearest Neighbors (k-NN) implementation for training and predicting wine quality. 
+								This library is crucial for building and evaluating the k-NN model.</li>
 								<br></br>
-								<li><strong>Google Colab</strong>: Provides an environment with GPU support for training the YOLO model. 
-								Colab’s cloud infrastructure enables quick experimentation and model optimisation without requiring local resources.</li>
+								<li><strong>caret</strong>: Used for data partitioning and cross-validation, helping optimise the model by selecting the best k-value 
+								through hyperparameter tuning.</li>
 								<br></br>
-								<li><strong>Python</strong>: The programming language used to build the system, combining YOLO and OpenCV.</li>
+								<li><strong>ggplot2</strong>: Used for visualising the wine dataset, allowing for effective exploration of relationships 
+								between features such as alcohol content, volatile acidity, and wine quality.</li>
 								<br></br>
 						</ul>
 
 						<p><strong>Data Collection</strong></p>
-						<p>The dataset used for training the model was sourced from Roboflows publicly available repositories. It contains just over
-							7000 of annotated images with class's for helmets and noHelmets. The dataset was augmented to improve the model by implemeting the following 
-							augmentations: Rotations, Crops, Grayscale and Blur.</p>
-						
-						<p>The images were already annotated but they were checked over and adjusted to ensure accurate labeling. The dataset was divided 
-							into training, validation, and testing sets, with a 70/20/10 split for effective model evaluation.</p>
+						<p>The dataset used for training the wine quality prediction model was sourced from the UCI Machine Learning Repository. 
+							The dataset is available at the following link: 
+							<a href="https://archive.ics.uci.edu/dataset/186/wine+quality" target="_blank">
+							https://archive.ics.uci.edu/dataset/186/wine+quality</a>.
+						</p>
 
-						<p><strong>Data Cleaning</strong></p>
-						<p>Data cleaning involved ensuring consistent annotations and removing duplicates or mislabeled images. Images with poor visibility 
-							or low resolution were excluded to maintain data quality. </p>
+						<p><strong>Data Understanding</strong></p>
+						<p>This dataset contains physicochemical test results of different wine samples and their corresponding quality scores 
+							(ranging from 0 to 10). The input variables include:</p>
+
+						<ul>
+								<li>Fixed acidity</li>
+								<li>Volatile acidity</li>
+								<li>Citric acid</li>
+								<li>Residual sugar</li>
+								<li>Chlorides</li>
+								<li>Free sulfur dioxide</li>
+								<li>Total sulfur dioxide</li>
+								<li>Density</li>
+								<li>pH</li>
+								<li>Sulphates</li>
+								<li>Alcohol</li>
+						</ul>
+
+						<p>The output variable represents the quality of the wine, which is determined based on sensory data from expert wine tasters.</p>
+
+						<p>The dataset was preprocessed to ensure consistency and accuracy, including handling missing values, normalising numerical 
+							features, and selecting relevant attributes. It was then divided into training and testing sets (80/20 split) 
+							to facilitate effective model evaluation and improve generalisation.</p>
+
+						<p><strong>Data Visualisation</strong></p>
+						<p>In the figure below, we can see the distribution of wine quality scores, which range from 3 to 8. The data is highly skewed 
+							towards central values, as there are significantly more ratings around the middle of the scale compared to extreme values 
+							like 3 or 8.</p>
+						<img src={KNNdistribution} alt="KNN distribution"></img>
+
+						<p>The figure below illustrates the relationship between alcohol content (alcohol strength) and wine quality ratings. 
+							The visualisation suggests a positive correlation, indicating that wines with higher alcohol content are more likely
+							 to receive higher quality ratings.</p>
+						<img src={KNNalcaholBYquality} alt="KNN alcahol by quality"></img>
+
+						<p>Similar to the previous figure, the one below suggests an inverse relationship between acidity and wine quality, 
+							indicating that higher acidity levels are generally associated with lower quality ratings.</p>
+						<img src={KNNacidityBYquality} alt="KNN acidity by quality"></img>
 
 						<p><strong>Data Quality Verification</strong></p>
-						<p>The dataset was verified through visualisation of annotations. The training process was monitored to ensure the model was 
-							learning effectively, and sample predictions were manually reviewed to confirm detection accuracy.</p>
+						<p>The dataset used in this project was sourced from the UCI Machine Learning Repository, specifically from the Wine
+							 Quality dataset. This dataset is publicly available and has been referenced in academic research, 
+							 including [Cortez et al., 2009]. It contains physicochemical properties of wine, along with quality ratings based on 
+							 sensory evaluations by expert wine tasters. Given its widespread use in machine learning studies and its structured format, 
+							 the dataset is considered reliable and suitable for building predictive models.</p>
 
 						<p><strong>Model Selection</strong></p>
-						<p>The YOLOv11 model from the Ultralytics library was selected for its high speed and accuracy in object detection tasks, 
-							it is the latest model of YOLO. YOLO's one-stage detection framework allows real-time processing, which is critical for 
-							live video analysis.</p>
+						<p>The k-Nearest Neighbors (k-NN) algorithm was selected for its simplicity and effectiveness in classification tasks. 
+							k-NN works by finding the k closest data points (neighbors) to a given instance and classifying it based on the majority 
+							vote of those neighbors. This makes it well-suited for predicting wine quality based on physicochemical properties 
+							such as acidity, alcohol content, and sulfur dioxide levels. k-NN's non-parametric nature allows it to adapt to complex 
+							patterns in the data, making it a strong choice for this project.</p>
 
-						<p><strong>Model Training</strong></p> <p>The annotated dataset was imported from Roboflow with the following code.</p>
-						<img src={importRoboflow} alt="RoboFlow Import"></img>
-						<p> Roboflow was used to annotate images and export the dataset in a format compatible with the YOLOv11 model.</p> 
-						<p>The training process was conducted using Google Colab, leveraging its GPU support to accelerate computations. 
-							To balance training quality and time constraints, the model was trained for 15 epochs. This duration was chosen due to the 
-							computational intensity required for processing the dataset. Training at 15 epochs took just over 2 hours.</p> 
-						<p>The training utilised the Ultralytics framework, which simplifies object detection model training. 
-							First, a pretrained model from Ultralytics was loaded as a starting point. This approach allowed the model to leverage 
-							features learned from a large generic dataset, speeding up convergence and improving accuracy. 
-							Subsequently, a new model was trained on the annotated dataset, ensuring it was fine-tuned to detect helmets and no helmets.
-							See image below for the code example.</p>
-						<img src={traingModel} alt="Training Model"></img>
+						<p><strong>Data Cleaning</strong></p>
+						<p>The data cleaning process involved multiple steps to ensure data quality and improve model performance. 
+							Missing values were handled by removing incomplete rows, resulting in the removal of 13 rows. Additionally, missing values 
+							in specific columns were imputed using the mean to preserve important data. Duplicate records were identified and 
+							merged to maintain dataset integrity. Furthermore, columns with a correlation of less than 0.1 with the target variable
+								(wine quality) were removed to enhance model accuracy and streamline the dataset for analysis and training.</p>
+								<img src={KNNnormalise} alt="KNN normalise"></img>
+								<img src={KNNcorrelation} alt="KNN correlation"></img>
 
-						<p><strong>Model Evaluation</strong></p>
-						<p>After training the model, its performance was evaluated using F1-score, recall, and precision metrics. See the figures below 
-							for detailed results.</p>
-						<img src={f1Score} alt="F1" class="responsive-img"></img>
-						<p>The F1-score achieved was 93%, indicating the model's high reliability in detecting helmets and no helmets. 
-							This means that 93% of predictions were correct.</p>
-						<img src={pScore} alt="Precision" class="responsive-img"></img>
-						<p>The precision-confidence curve for the helmet detection project shows that all classes achieve a precision of 1.00 at a 
-							confidence threshold of 0.907. This means that when the model predicts with at least 90.7% confidence, it makes no false 
-							positive detections, ensuring highly reliable predictions for safety equipment detection at higher confidence levels.</p>
-						<img src={rScore} alt="Recall" class="responsive-img"></img>
-						<p>The recall-confidence curve for the helmet detection project shows that all classes achieve a recall of 0.99 at a confidence 
-							threshold of 0.0. This indicates that the model successfully detects 99% of all actual instances across all classes, 
-							even when it predicts with very low confidence, highlighting its effectiveness in minimising missed detections.</p>
+						<p><strong>Model Training</strong></p>
+						<p>The K-Nearest Neighbors (KNN) model was trained on a preprocessed dataset. The data was split into training and testing 
+							sets using an 80-20 split. The model was implemented using the `class` and `caret` libraries in R. Key steps included 
+							normalising the feature variables, selecting the optimal value of `k` through cross-validation, and training the KNN model 
+							on the training set. The model was then evaluated using accuracy metrics to predict wine quality based on 
+							physicochemical properties such as acidity, alcohol content, and sulphates.</p>
+
+						<p><strong>Model Evaluation</strong></p> 
+						<p>The performance of the k-NN model was assessed using the accuracy score. Initially, before tuning, the model achieved an 
+							accuracy of 51%. After tuning the hyperparameters, the accuracy improved to 59%. While this represents a notable improvement, 
+							the results indicate that there is still room for further optimisation, such as refining feature selection or experimenting 
+							with different preprocessing techniques.</p>
+						<img src={KNNaccuracy} alt="accuracy"></img>
 
 						<p><strong>Results</strong></p>
-						<p>The model demonstrated high accuracy in detecting helmets and no helmets in diverse environments. Features such as lighting 
-							conditions and worker positions impacted detection performance, while robust preprocessing techniques mitigated these challenges. 
-							The results affirm the system’s capability to monitor safety effectively.</p>
-
-						<p><strong>Conclusion</strong></p>
-						<p>This project highlights the potential of Ultralytics, YOLO and OpenCV in real-time object detection for enhancing safety. 
-							The system successfully identified safety violations with high accuracy, providing a reliable tool for supervisors and 
-							safety officers. This innovation can significantly reduce workplace accidents, ensuring a safer environment for workers.</p>
+						<p>The k-NN model demonstrated a 59% accuracy in predicting wine quality, with key features like alcohol content, 
+							volatile acidity, and fixed acidity playing a significant role in the model's performance. The dataset was carefully 
+							preprocessed to handle missing values, impute missing data, and remove irrelevant columns, ensuring high-quality input 
+							for model training. Despite the moderate accuracy, the results suggest the model's potential in predicting wine quality, 
+							with room for further optimisation in feature selection and parameter tuning.</p>
 
 						<p><strong>Acknowledgements</strong></p>
-						<p><a href="https://ultralytics.com/" target="_blank">Ultralytics</a> - Documentation, Tutorials, Guides, Framework, Support</p>
-						<p><a href="https://app.roboflow.com/" target="_blank">Roboflow</a> - Dataset annotation and preparation</p>
-						<p><a href="https://opencv.org/" target="_blank">OpenCV</a> - Video stream processing</p>
+						<p><a href="https://archive.ics.uci.edu/dataset/186/wine+quality" target="_blank">UCI Machine Learning Repository</a> - dataset collection</p>
+						<p><a href="https://www.kaggle.com/code/mmdatainfo/k-nearest-neighbors" target="_blank">Kaggle kNN</a> - notes</p>
+						<p><a href="https://notebook.community/RagsX137/TF_Tutorial/My+own+KNN+Classifier" target="_blank">notebook.community</a> - notes</p>
+						<p>Lecturer Dr. Agnes Maciocha notes</p>
 						<p>Lecturer Dr. Greg Doyle's notes</p>
 
 					</div>
