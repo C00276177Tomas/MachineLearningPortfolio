@@ -41,6 +41,17 @@ import KNNalcaholBYquality from './images/KNNalcaholBYquality.png';
 import KNNcorrelation from './images/KNNcorrelation.png';
 import KNNnormalise from './images/KNNnormalise.png';
 import KNNaccuracy from './images/KNNaccuracy.png';
+import elbowMethodImage from './images/KMCelbow.png';
+import elbowMethodImageHigh from './images/KMCelbowHigh.png';
+import silhouetteMethodImage from './images/KMCsilhouette.png';
+import KMCanalysis from './images/KMCpca.png';
+
+import KMCcalories from './images/KMCcalories.png';
+import KMCcarbs from './images/KMCcarbs.png';
+import KMCfat from './images/KMCfat.png';
+import KMCfiber from './images/KMCfiber.png';
+import KMCprotein from './images/KMCprotein.png';
+import KMCsugars from './images/KMCsugars.png';
 
 
 function App() {
@@ -227,6 +238,10 @@ function App() {
 							<img src={rButton} width={50} height={25} alt="r button" style={{ float: "right", marginLeft: "12px" }} ></img>
 						</a>
 						<a href="#machineLearning6">
+							K Means Clustering
+							<img src={pythonButton} width={100} height={25} alt="python button" style={{ float: "right", marginLeft: "12px" }} ></img>
+						</a>
+						<a href="#machineLearning7">
 							Convolutional Neural Networks  
 							<img src={pythonButton} width={100} height={25} alt="python button" style={{ float: "right", marginLeft: "12px" }} ></img>
 						</a>
@@ -839,6 +854,108 @@ function App() {
 
 
 					<div id="machineLearning6" class="job">
+
+					<h3>Uncovering Nutritional Insights with K-Means Clustering</h3>
+						<p><strong>Problem Definition</strong></p>
+						<p>With the vast variety of food options available, identifying nutritious choices efficiently can be challenging. 
+							By clustering foods based on their nutritional composition, we can uncover patterns that help users make informed 
+							dietary decisions. This project uses K-Means clustering to group foods by different nutritional content to then identify
+							food that are high, medium, low in different types of nutritional values. The user can then select a cluster that meets their 
+							needs and eat the foods that are in that cluster.</p>
+
+						<p><strong>Business Objectives</strong></p>
+						<p>This project aims to analyse nutrition data using K-Means clustering to group foods based on key nutritional factors 
+							such as calories, protein, carbohydrates, fat, fiber, and sugars. By identifying patterns in these attributes, 
+							the project provides insights that help users make informed dietary choices and optimise nutrition intake.</p>
+
+						<p><strong>Tools & Technologies</strong></p>
+						<ul>
+								<li><strong>Scikit-learn</strong>: Provides tools for building and training the model and evaluating its performance 
+								through metrics and cross-validation.</li>
+								<br></br>
+								<li><strong>Pandas and NumPy</strong>: Used for data manipulation, preprocessing, and feature extraction from email datasets.</li>
+								<br></br>
+								<li><strong>Python</strong>: The programming language used to integrate all components, enabling efficient preprocessing, 
+								modelling, and evaluation.</li>
+								<br></br>
+						</ul>
+
+						<p><strong>Data Collection</strong></p>
+						<p>The dataset for this project was sourced from the 
+							<a href="https://www.kaggle.com/code/samikshadalvi/daily-food-and-nutrition-dataset-eda/input"> Kaggle Daily Food and Nutrition 
+							Dataset</a>. 
+							It contains records of food items consumed by individuals, including their nutritional breakdown. The dataset includes 
+							attributes such as calories, protein, carbohydrates, fat, fiber, and sugars, making it a valuable resource for analysing 
+							dietary patterns and clustering foods based on their nutritional composition.</p>
+
+						<p><strong>Model Selection</strong></p>
+						<p>K-Means clustering was selected for this project due to its effectiveness in identifying patterns within unlabeled data. 
+							This algorithm groups food items based on their nutritional composition, allowing us to uncover meaningful clusters such as 
+							high-protein, low-carb, or high-calorie foods. K-Means is well-suited for this task as it efficiently handles large 
+							datasets and provides intuitive insights into dietary trends.</p>
+
+						<p><strong>Data Cleaning</strong></p>
+						<p>Data cleaning involved selecting the most relevant nutritional columns such as Calories, Protein, Carbohydrates, 
+							Fat, Fiber, and Sugars. Irrelevant columns like Date and User_ID were removed. The data was then scaled to ensure 
+							consistency across features. A check for missing values was performed, and none were found. This process ensures 
+							that only the most important attributes are used for clustering, improving the accuracy and effectiveness of the K-Means model.</p>
+
+						<p><strong>Model Training</strong></p>
+						<p>The optimal number of clusters (k) was first determined using the Elbow Method. This method involves plotting the sum of 
+							squared distances from each point to its assigned cluster center (inertia) against different values of k. The "elbow" 
+							point on the graph indicates the ideal k value. However, in this case, the Elbow Method did not provide a clear-cut choice for k.</p>
+						<img src={elbowMethodImage} alt="Elbow Method for Optimal K Value"></img>
+						<img src={elbowMethodImageHigh} alt="Elbow Method for Optimal K Value"></img>
+
+						<p>As the Elbow Method was inconclusive, the Silhouette Method was then applied to determine the optimal k. 
+							This method evaluates the quality of clusters by measuring how similar each point is to its own cluster 
+							compared to other clusters. A higher Silhouette Score indicates better-defined clusters. Based on the Silhouette analysis, 
+							a k value of 32 was chosen for the K-Means clustering model.</p>
+						<img src={silhouetteMethodImage} alt="Silhouette Method for Optimal K Value"></img>
+						<p>The K-Means clustering model was then trained on the preprocessed dataset, where features were selected based on their relevance. 
+							The model was implemented using Scikit-learn, where the key steps included fitting the model to the data and evaluating 
+							the results through cluster analysis.</p>
+						<img src={KMCanalysis} alt="KMC analysis"></img>
+
+
+						<p><strong>Results</strong></p>
+						<p>The K-Means clustering model successfully grouped food items into distinct clusters based on their nutritional content. 
+							Each cluster was analysed by examining the distribution of key nutrients, such as Calories, Protein, Fat, Carbohydrates, 
+							Fiber, and Sugars.</p>
+
+						<p>We can use this data to choose clusters that match our nutrition needs, which could significantly save time and improve
+							performance. For example the first cluster would be classified as mid calories, low protein, mid fat, low carbs, mid fiber,
+							 mid sugars. Below are the visualisations showing how these nutrients vary across the different clusters:</p>
+
+						<p><strong>Calories</strong></p>
+						<img src={KMCcalories} alt="Calories Distribution Across Clusters"></img>
+
+						<p><strong>Protein</strong></p>
+						<img src={KMCprotein} alt="Protein Distribution Across Clusters"></img>
+
+						<p><strong>Fat</strong></p>
+						<img src={KMCfat} alt="Fat Distribution Across Clusters"></img>
+
+						<p><strong>Carbohydrates</strong></p>
+						<img src={KMCcarbs} alt="Carbohydrates Distribution Across Clusters"></img>
+
+						<p><strong>Fiber</strong></p>
+						<img src={KMCfiber} alt="Fiber Distribution Across Clusters"></img>
+
+						<p><strong>Sugars</strong></p>
+						<img src={KMCsugars} alt="Sugars Distribution Across Clusters"></img>
+
+
+						<p><strong>Acknowledgements</strong></p>
+						<p><a href="https://www.kaggle.com/code/samikshadalvi/daily-food-and-nutrition-dataset-eda/input" target="_blank">Kaggle</a> - dataset collection</p>
+						<p><a href="https://github.com/jakevdp/PythonDataScienceHandbook/blob/master/notebooks/05.11-K-Means.ipynb" target="_blank">Jake Vanderplas - Python Data Science Handbook - 05.11-K-Means</a></p>
+						<p><a href="https://notebook.community/cgivre/oreilly-sec-ds-fundamentals/Notebooks/Unsupervised/K-Means%20Clustering%20Example" target="_blank">notebook.community</a></p>
+						<p>Lecturer Dr. Greg Doyle's notes</p>
+
+					</div>
+
+
+					<div id="machineLearning7" class="job">
 
 					<h3>Object Detection For Helmets Using Convolutional Neural Networks (CNNs)</h3>
 						<p><strong>Introduction</strong></p>
