@@ -84,6 +84,14 @@ import DeepSeek6 from './images/6Deep.png';
 import DeepSeek7 from './images/7Deep.png';
 import DeepSeek8 from './images/8Deep.png';
 
+import videoSrc from './FinalVideoDemo.mp4';
+
+import designPdf from './docs/SiteSafeDesignC00276177.pdf';
+import posterPdf from './docs/SiteSafeAiPoster.pdf';
+import specsPdf from './docs/SiteSafeSpecsIteration0.pdf';
+import reportPdf from './docs/SiteSafeReport.pdf';
+import docsImage from './images/docs.jpeg';
+
 
 
 function App() {
@@ -1338,7 +1346,90 @@ function App() {
 
         </section>
         <section id="projects">
+
           <h2>Projects</h2>
+
+					<div class="project">
+            <h3>Final Year Project - SiteSafeAI</h3>
+									
+						<h4>Video Demonstration</h4>
+						<video style={{ width: '100%', height: 'auto' }} controls>
+							<source src={videoSrc} type="video/mp4" />
+							Your browser does not support the video tag.
+						</video>
+
+						<h4>Project Summary</h4>
+						<p>
+							This project aims to enhance safety and compliance on construction sites by using AI to monitor workers and
+							ensure they are wearing essential safety gear, such as helmets and high-visibility jackets, at all times.
+							The system leverages real-time video feeds, which are processed by an object detection model based on YOLO
+							(You Only Look Once), a high-performance deep learning model for image recognition and object detection.
+						</p>
+						<p>
+							The solution is designed to automatically detect personnel within the camera’s view, assess whether they
+							are equipped with the required safety attire, and alert supervisors if any safety violations are detected.
+							By integrating OpenCV for live video processing, Flask for backend web infrastructure, and React for the
+							user interface, the system provides a seamless and user-friendly experience.
+						</p>
+						<h5>Features:</h5>
+						<ul>
+							<li><strong>Real-Time Detection:</strong> Continuously monitors video streams to detect workers and assess safety compliance.</li>
+							<li><strong>Automated Alerts:</strong> Utilises SMTP to send email alerts to designated safety personnel when safety violations are identified.</li>
+							<li><strong>Data Logging and Reporting:</strong> Logs incidents and generates reports, using MySQL, to provide insights on compliance patterns and areas for safety improvement.</li>
+							<li><strong>Scalability:</strong> Allowing multi-camera support.</li>
+						</ul>
+
+						<h5>Technologies:</h5>
+						<ul>
+							<li><strong>Machine Learning/AI:</strong> YOLOv11 , Ultralytics</li>
+							<li><strong>Video Processing:</strong> OpenCV</li>
+							<li><strong>Web Framework:</strong> Flask (backend), React (frontend)</li>
+							<li><strong>Database:</strong> MySQL</li>
+							<li><strong>Alerts:</strong> SMTP for email notifications</li>
+							<li><strong>Dashboard:</strong> Flexdashboard</li>
+						</ul>
+
+						<p>
+							This AI-powered monitoring system offers a proactive approach to safety, reducing human error and ensuring
+							compliance with safety regulations, ultimately helping to create a safer construction environment.
+						</p>
+
+						<h4>Documentation</h4>
+						<div className="button-container">
+							<button
+								className="spec-button"
+								onClick={() => window.open(specsPdf, '_blank')}
+							>
+								<img src={docsImage} alt="Specifications Icon" className="specs-icon" />
+								View Specifications
+							</button>
+
+							<button
+								className="spec-button"
+								onClick={() => window.open(posterPdf, '_blank')}
+							>
+								<img src={docsImage} alt="Poster Icon" className="specs-icon" />
+								View Poster
+							</button>
+
+							<button
+								className="spec-button"
+								onClick={() => window.open(designPdf, '_blank')}
+							>
+								<img src={docsImage} alt="Design Icon" className="specs-icon" />
+								View Design
+							</button>
+
+							<button
+								className="spec-button"
+								onClick={() => window.open(reportPdf, '_blank')}
+							>
+								<img src={docsImage} alt="Report Icon" className="specs-icon" />
+								View Report
+							</button>
+						</div>
+
+          </div>
 
           <div class="project">
             <h3>Portfolio Website – Web Development</h3>
