@@ -1,9 +1,14 @@
 {
   "files": {
-    "main.css": "/MachineLearningPortfolio/static/css/main.e2bb346f.css",
-    "main.js": "/MachineLearningPortfolio/static/js/main.07d4ba73.js",
+    "main.css": "/MachineLearningPortfolio/static/css/main.b03ca4a2.css",
+    "main.js": "/MachineLearningPortfolio/static/js/main.d12d7b24.js",
+    "static/media/FinalVideoDemo.mp4": "/MachineLearningPortfolio/static/media/FinalVideoDemo.d547086a465ff171eece.mp4",
     "static/media/background.jpg": "/MachineLearningPortfolio/static/media/background.e31c5453bedbb3d17a1c.jpg",
+    "static/media/SiteSafeReport.pdf": "/MachineLearningPortfolio/static/media/SiteSafeReport.86222eb0d6b7176b48e2.pdf",
+    "static/media/SiteSafeDesignC00276177.pdf": "/MachineLearningPortfolio/static/media/SiteSafeDesignC00276177.a5fa2dd307e3af4dc08d.pdf",
     "static/media/KMCpca.png": "/MachineLearningPortfolio/static/media/KMCpca.09d9ce69c3eb934e7c62.png",
+    "static/media/SiteSafeAiPoster.pdf": "/MachineLearningPortfolio/static/media/SiteSafeAiPoster.c438a477fe768f84393e.pdf",
+    "static/media/SiteSafeSpecsIteration0.pdf": "/MachineLearningPortfolio/static/media/SiteSafeSpecsIteration0.da793aa37a45389b31aa.pdf",
     "static/media/codeAssemblyProject.png": "/MachineLearningPortfolio/static/media/codeAssemblyProject.065bbb5f319f67c75794.png",
     "static/media/F1_curve.png": "/MachineLearningPortfolio/static/media/F1_curve.08a4c832d8a47f42acbc.png",
     "static/media/R_curve.png": "/MachineLearningPortfolio/static/media/R_curve.0bf688edfadb2c8081bc.png",
@@ -73,11 +78,11 @@
     "static/media/level1AssemblyProject.png": "/MachineLearningPortfolio/static/media/level1AssemblyProject.37665738a83f9f601cbb.png",
     "static/media/KNNnormalise.png": "/MachineLearningPortfolio/static/media/KNNnormalise.814ae4088f8558f5addf.png",
     "index.html": "/MachineLearningPortfolio/index.html",
-    "main.e2bb346f.css.map": "/MachineLearningPortfolio/static/css/main.e2bb346f.css.map",
-    "main.07d4ba73.js.map": "/MachineLearningPortfolio/static/js/main.07d4ba73.js.map"
+    "main.b03ca4a2.css.map": "/MachineLearningPortfolio/static/css/main.b03ca4a2.css.map",
+    "main.d12d7b24.js.map": "/MachineLearningPortfolio/static/js/main.d12d7b24.js.map"
   },
   "entrypoints": [
-    "static/css/main.e2bb346f.css",
-    "static/js/main.07d4ba73.js"
+    "static/css/main.b03ca4a2.css",
+    "static/js/main.d12d7b24.js"
   ]
 }
