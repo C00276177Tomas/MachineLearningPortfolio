@@ -222,12 +222,23 @@ function App() {
             strong interest in AI, I aim to contribute to meaningful advancements and create impactful, practical applications.
           </p>
           <p>
-          I hold a Level 7 Ordinary Degree in Software Development with a 2.1 GPA, granted by South East Technological University. 
-          I am currently pursuing a Level 8 Honours Degree in Software Development, with the goal of achieving a 1.1 GPA.
+          I hold a Level 8 Honours Degree in Software Development, awarded with First Class Honours (1.1) by South East Technological University. 
+		  My final year project, SiteSafeAI, was awarded Project of the Year in Software Development 2025 and was also a finalist in the 
+		  Sun Life Academic Awards.
           </p>
         </section>
         <section id="experience">
           <h2>Experience</h2>
+			<div class="job">
+				<h3>Victor Treacy International (Temp Software Development)</h3>
+				<p class="dates">May 2025 – Current</p>
+				<ul>
+					<li>Responsible for updating and expanding website functionality to meet evolving requirements, including frontend, backend, and database development in line with changing business and regulatory needs.</li>
+					<li>Performed coding, debugging, and testing. Utilised version control and collaborated closely with seniors.</li>
+					<li>Main technologies used: .NET, C#, jQuery, JavaScript, HTML, CSS, SQL.</li>
+				</ul>
+			</div>
+
           <div class="job">
               <h3>Netwatch – Research & Development Department (Software Development Intern)</h3>
               <p class="dates">Jan 2024 – July 2024</p>
@@ -1351,6 +1362,14 @@ function App() {
 
 					<div class="project">
             <h3>Final Year Project - SiteSafeAI</h3>
+			<h4 style={{
+			fontWeight: 600,
+			textAlign: 'center',
+			fontFamily: 'Segoe UI, sans-serif',
+			fontSize: '1.2rem'
+			}}>
+			(Winner of Best Project of the Year in Software Development at SETU Carlow & Sun Life Academic Awards Finalist 2025)
+			</h4>
 									
 						<h4>Video Demonstration</h4>
 						<video style={{ width: '100%', height: 'auto' }} controls>
@@ -1432,12 +1451,14 @@ function App() {
           </div>
 
           <div class="project">
-            <h3>Portfolio Website – Web Development</h3>
-            <p><strong>Technologies:</strong> React, JavaScript, HTML, CSS</p>
-            <p>This portfolio website showcases my projects and skills in software development. It is built using React, JavaScript, HTML, 
-              CSS to provide an interactive and responsive experience. The site features a clean, modern design with sections for my experience, 
-              projects, and contact information. It also includes links to live project demos and detailed descriptions of each project, 
-              allowing visitors to explore my work and get in touch with me.</p>
+            <h3>R Flexdashboard – Data Visualisation</h3>
+            <p><strong>Technologies:</strong> R, R Studio, flexdashboard, dplyr, tidyr.</p>
+			<ul>
+				<li>Created an interactive dashboard using <strong>Flexdashboard</strong> in R to visualise detection data for the SiteSafeAI project.</li>
+				<li>Displayed key metrics, charts, and time-series trends to monitor and analyze safety-related events.</li>
+				<li>Integrated dynamic visual components using <strong>ggplot2</strong> and <strong>plotly</strong>, enabling stakeholders to easily interpret patterns in site activity and detections.</li>
+			</ul>
+			<p>Check it out at: <a href="https://rpubs.com/GloreasBoreas/SiteSafe" target="_blank">https://rpubs.com/GloreasBoreas/SiteSafe</a></p>
           </div>
 
           <div class="project">
