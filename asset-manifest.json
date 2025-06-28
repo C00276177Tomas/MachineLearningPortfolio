@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/MachineLearningPortfolio/static/css/main.b03ca4a2.css",
-    "main.js": "/MachineLearningPortfolio/static/js/main.d12d7b24.js",
+    "main.js": "/MachineLearningPortfolio/static/js/main.8a9f0f20.js",
     "static/media/FinalVideoDemo.mp4": "/MachineLearningPortfolio/static/media/FinalVideoDemo.d547086a465ff171eece.mp4",
     "static/media/background.jpg": "/MachineLearningPortfolio/static/media/background.e31c5453bedbb3d17a1c.jpg",
     "static/media/SiteSafeReport.pdf": "/MachineLearningPortfolio/static/media/SiteSafeReport.86222eb0d6b7176b48e2.pdf",
@@ -79,10 +79,10 @@
     "static/media/KNNnormalise.png": "/MachineLearningPortfolio/static/media/KNNnormalise.814ae4088f8558f5addf.png",
     "index.html": "/MachineLearningPortfolio/index.html",
     "main.b03ca4a2.css.map": "/MachineLearningPortfolio/static/css/main.b03ca4a2.css.map",
-    "main.d12d7b24.js.map": "/MachineLearningPortfolio/static/js/main.d12d7b24.js.map"
+    "main.8a9f0f20.js.map": "/MachineLearningPortfolio/static/js/main.8a9f0f20.js.map"
   },
   "entrypoints": [
     "static/css/main.b03ca4a2.css",
-    "static/js/main.d12d7b24.js"
+    "static/js/main.8a9f0f20.js"
   ]
 }
